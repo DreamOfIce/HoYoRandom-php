@@ -1,6 +1,6 @@
 ![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/cover.png "超级缝合怪")
 
-<iframe src="https://ghbtns.com/github-btn.html?user=Creeper2077&repo=random-api&type=star&count=true" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe> 
+<a href="https://github.com/Creeper2077/random-api/stargazers"><img style="display: inline" src="https://img.shields.io/github/stars/Creeper2077/random-api?style=flat-square"></a>
 
 # 原神、崩3随机API  
 
@@ -9,7 +9,7 @@
 包括随机图片,随机音乐,随机视频以及一言，可用于网页  
 使用*jsdelivr*CDN  
 如果需求量很大的话请&自已部署副本\自建服务器!  
-目前资源库内容很少，希望大家可以积极贡献^_^  
+目前资源库内容很少，希望大家可以积极贡献\^_\^  
 可以创建 _Issues_ 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)  
 > _部分资源来自互联网，版权归原作者所有_  
 > _代码使用后的风险及产生的后果由使用者承担_
