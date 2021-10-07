@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/kiamon.png "超级缝合怪")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/cover.png "超级缝合怪")
 
 <iframe src="https://ghbtns.com/github-btn.html?user=Creeper2077&repo=random-api&type=star&count=true" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe> 
 
@@ -16,6 +16,12 @@
 ## 我的博客
 [www.creeper2077.online](https://www.creeper2077.online)  
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
+
+## 镜像存储库
+> 本仓库在Github,Gitlab&Bitbucket皆有镜像仓库，你可以在任何一处查看
+[Github](https://github.com/Creeper2077/random-api)
+[Gitlab](https://gitlab.com/Creeper2077/random-api)
+[Bitbucket](https://bitbucket.org/creeper2077/random-api)
 
 ## 资源整理
 1. 崩3壁纸（1920*1080）共360张 _1GB_  
