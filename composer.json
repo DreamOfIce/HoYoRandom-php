@@ -2,9 +2,6 @@
     "name": "creeper2077/randomapi",
     "description": "HoYoGame random API",
     "type": "project",
-    "require": {
-        "php": "^8.0.11"
-      },
     "authors": [
         {
             "name": "Creeper2077",
