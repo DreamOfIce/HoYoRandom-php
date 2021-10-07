@@ -1,12 +1,12 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@master/randomapi.png "超级缝合怪")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/randomapi.png "超级缝合怪")
 
-<iframe src="https://ghbtns.com/github-btn.html?user=Creeper2077&repo=random-apiap&type=star&count=true" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe> 
+<iframe src="https://ghbtns.com/github-btn.html?user=Creeper2077&repo=random-api&type=star&count=true" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe> 
 
 # 原神、崩3随机API  
 
 [TOC]
 
-包括随机图片,随机音乐,随机视频以及一言，适用于网页  
+包括随机图片,随机音乐,随机视频以及一言，可用于网页  
 使用*jsdelivr*CDN  
 如果需求量很大的话请&自已部署副本\自建服务器!  
 目前资源库内容很少，希望大家可以积极贡献^_^  
@@ -34,7 +34,7 @@
 ## 使用方法
 
 ### 随机图片
-随机显示原神或崩坏3的图片，目前全部为1920*1080,jpg格式  
+随机显示原神或崩坏3的图片，目前全部为1920*1080,webp格式  
 存放于 [img 目录](https://github.com/Creeper2077/random-api/tree/master/img)  
 - 接口  
 		https://random-api.creeper2077.online/img
@@ -85,7 +85,7 @@ function api(){document.write('为世界上所有的美好而战');}
 ***
 
 ### 随机音乐  
-包含网易云音乐中原神,崩3的所有专辑，音质128kbps,格式为mp3  
+包含网易云音乐中原神,崩3的所有专辑，音质128kbps,格式为ogg  
 存放于[music目录](https://github.com/Creeper2077/random-api/tree/master/music)  
 - 接口  
 		https://random-api.creeper2077.online/music
