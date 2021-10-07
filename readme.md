@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/randomapi.png "超级缝合怪")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/kiamon.png "超级缝合怪")
 
 <iframe src="https://ghbtns.com/github-btn.html?user=Creeper2077&repo=random-api&type=star&count=true" frameborder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe> 
 
