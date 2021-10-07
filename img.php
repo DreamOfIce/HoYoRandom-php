@@ -41,7 +41,7 @@ if($handle = opendir($path)) {
 # Loop Through Directory
     while(false !== ($file = readdir($handle))) {
         if ($file != "." && $file != "..") {
-            if(substr($file, -3) == 'png' || substr($file, -3) == 'jpg' || substr($file, -4) == 'jpeg') $files[count($files)] = $file;
+            if(substr($file, -4) == 'webp') $files[count($files)] = $file;
         }
     }
 }

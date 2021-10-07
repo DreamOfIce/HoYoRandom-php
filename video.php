@@ -20,7 +20,7 @@ if($handle = opendir($path)) {
 # Loop Through Directory
     while(false !== ($file = readdir($handle))) {
         if ($file != "." && $file != "..") {
-            if(substr($file, -3) == 'mp4' || substr($file, -4) == 'webm' || substr($file, -4) == 'm4a') $files[count($files)] = $file;
+            if(substr($file, -4) == 'webm') $files[count($files)] = $file;
         }
     }
 }

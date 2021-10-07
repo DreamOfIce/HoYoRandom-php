@@ -23,7 +23,7 @@ if($handle = opendir($path)) {
 # Loop Through Directory
     while(false !== ($file = readdir($handle))) {
         if ($file != "." && $file != "..") {
-            if(substr($file, -3) == 'mp3' || substr($file, -3) == 'm4a' || substr($file, -4) == 'ogg') $files[count($files)] = $file;
+            if(substr($file, -3) == 'ogg') $files[count($files)] = $file;
         }
     }
 }
