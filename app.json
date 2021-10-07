@@ -1,0 +1,12 @@
+{
+    "name": "HoYoGames Random-API",
+    "description": "原神，崩坏3的随机图片、音乐，视频，一言",
+    "repository": "https://github.com/Creeper2077/random-api",
+    "logo": "https://cdn.jsdelivr.net/gh/Creeper2077/random-api@master/randomapi.png",
+    "keywords": ["php", "hitokoto", "game","genshin"],
+    "env": {
+        "DOMAIN": {
+          "description": "Enter Your Domain"
+        }
+      }
+}

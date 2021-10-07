@@ -1,0 +1,15 @@
+{
+    "name": "creeper2077/randomapi",
+    "description": "HoYo random API",
+    "type": "project",
+    "require": {
+        "php": "^8.0.8"
+      },
+    "authors": [
+        {
+            "name": "Creeper2077",
+            "email": "admin@creeper2077.online"
+        }
+    ]
+   
+  }
