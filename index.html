@@ -1426,3 +1426,18 @@ input {
 <span>可选值:img hitokoto music video</span></p><p><strong><span>game</span></strong><span></span><br/><em><span>选择目标游戏(崩崩崩 OR 原神)</span></em><span></span><br/><span>可选值:bh3 ys</span><br/><span>默认值:bh3  </span></p><p><strong><span>encode</span></strong><span></span><br/><em><span>指定返回格式,仅当type=hitokoto时生效</span></em><span></span><br/><span>可选值:js json text </span><br/><span>默认值:text</span></p><h2 id='部署方法'><span>部署方法 </span></h2><p><span id="deploy"></span></p><h3 id='使用heroku部署'><span>使用Heroku部署</span></h3><p><span>点击下面的按钮进行部署（Heroku自定义域名要绑卡,可以用</span><em><span>cfworker</span></em><span>反代解决)</span><br/><a href='https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api'><img src="https://www.herokucdn.com/deploy/button.svg" referrerpolicy="no-referrer" alt="Deploy"></a></p><hr /><h3 id='部署到vps'><span>部署到VPS  </span></h3><ol start='' ><li><span>把源码拷贝到网页目录    </span></li><li><span>将</span><em><span>nginx_app.conf</span></em><span>的内容添加到</span><em><span>nginx.conf</span></em><span>的</span><em><span>server</span></em><span>部分  </span></li></ol><h2 id='部分内容来源'><span>部分内容来源  </span></h2><h3 id='崩3图片'><span>崩3图片  </span></h3><p><a href='https://bh3.mihoyo.com/wallpapers'><span>三蹦子官网</span></a><span></span><br/><span>B站 </span><a href='https://space.bilibili.com/256667467'><span>最惨官号——崩坏3</span></a><span>  </span></p><h3 id='原神图片'><span>原神图片  </span></h3><p><a href='https://t.bilibili.com/542713497747206611'><span>原神官方</span></a><span>  </span></p><h3 id='音乐'><span>音乐  </span></h3><p><a href='https://music.163.com/#/user/home?id=1321189664'><span>网易云音乐|HOYO-Mix</span></a><span></span><br/><em><strong><span>HOYO-Mix YYDS</span></strong></em></p><h3 id='视频'><span>视频  </span></h3><p><span>B站</span><br/><a href='https://space.bilibili.com/401742377'><span>原神</span></a><span></span><br/><a href='https://space.bilibili.com/27534330'><span>崩坏3第一偶像</span><del><span>爱酱</span></del><span>渡鸦</span></a><span>  </span></p><h2 id='license'><span>LICENSE</span></h2><blockquote><p><span>本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权</span></p></blockquote></div></div>
 </body>
 </html>
+<script>
+var time;
+var norm_title = document.title;
+document.addEventListener('visibilitychange', function () {
+	if (document.visibilityState == 'hidden') {
+		clearTimeout(time);
+		document.title = '舰长补给全保底，舰长副本零掉落';
+	} else {
+		document.title = '为世界上所有的美好而战';
+		time = setTimeout(function () {
+			document.title = normar_title;
+		}, 3000);
+	}
+});
+</script>
