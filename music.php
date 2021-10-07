@@ -2,9 +2,6 @@
 # Init Array
 $files = array();
 
-#Domain
-$domain = $_SERVER['SERVER_NAME'];
-
 #URL of the jsdelivr
 $cdn = 'https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main';
 
@@ -31,13 +28,7 @@ if($handle = opendir($path)) {
 closedir($handle);
 # Init Random
 $random = rand(0, count($files)-1);
-#Generate the URL
-if(isset($_GET['cdn']) && $_GET['cdn']='false') {
-    $url = $domain;
-} else {
-    $url = $cdn;
-}
 
 # Read File
-header("Location:".$url.$folder.$files[$random]);
+header("Location:".$cdn.$folder.$files[$random]);
 ?>

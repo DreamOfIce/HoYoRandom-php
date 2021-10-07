@@ -24,7 +24,7 @@
         
         //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
-        echo "function api(){document.write('" . $content ."');}";
+        echo "(function hitokoto(){var hitokoto='" . $content ."';var dom=document.querySelector('#hitokoto');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()";
     }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
         header('Content-type:text/json');
         $content = array('text'=>$content);

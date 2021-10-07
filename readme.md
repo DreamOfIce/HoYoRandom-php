@@ -44,7 +44,7 @@
 随机显示原神或崩坏3的图片，目前全部为1920*1080,webp格式  
 存放于 [img 目录](https://github.com/Creeper2077/random-api/tree/main/img)  
 - 接口  
-		https://random-api.creeper2077.online/img
+		https://random-api.creeper2077.online/img.php
 - 参数  
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
@@ -53,8 +53,8 @@
 
 -演示  
 *试着刷新页面，图片会改变哦*  
-![崩3随机图片](https://random-api.creeper2077.online/img "这是随机的哦")  
-![原神随机图片](https://random-api.creeper2077.online/img?game=ys "这是随机的哦")  
+![崩3随机图片](https://random-api.creeper2077.online/img.php "这是随机的哦")  
+![原神随机图片](https://random-api.creeper2077.online/img.php?game=ys "这是随机的哦")  
 
 ***
 
@@ -62,7 +62,7 @@
 包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  
 文件位置: bh3_Hitokoto.txt,ys_Hitokoto.txt  
 - 接口  
-		https://random-api.creeper2077.online/hitokoto 
+		https://random-api.creeper2077.online/hitokoto.php 
 - 参数  
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
@@ -87,7 +87,6 @@ function api(){document.write('为世界上所有的美好而战');}
 ```
 -演示  
 > 试着刷新页面，句子会改变哦(需要js)  
-<script type="text/javascript" src="https://random-api.creeper2077.online/hitokoto?encode=js"></script>
 
 ***
 
