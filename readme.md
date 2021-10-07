@@ -62,7 +62,7 @@
 可选值:bh3 ys  
 默认值:bh3  
 **encode**  
-*指定文件编码*  
+*指定返回格式*  
 可选值:js json text   
 默认值:text  
 - 返回值  
@@ -120,6 +120,26 @@ function api(){document.write('为世界上所有的美好而战');}
 <video controls="controls" autoplay="autoplay">
   <source src="https://random-api.creeper2077.online/video" type="video/webm" />
 </video>
+
+***  
+### 通用API
+- 接口  
+		https://random-api.creeper2077.online/api
+- 参数  
+
+**type**
+*选择类型*
+可选值:img hitokoto music video
+
+**game**  
+*选择目标游戏(崩崩崩 OR 原神)*  
+可选值:bh3 ys  
+默认值:bh3  
+
+**encode**  
+*指定返回格式,仅当type=hitokoto时生效*  
+可选值:js json text   
+默认值:text
 
 ## 部署方法 
 <span id="deploy"></span>
