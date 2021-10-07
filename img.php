@@ -20,11 +20,11 @@
 # Init Array
 $files = array();
 
-#Enter Your domain
-$domain = getenv('DOMAIN');
+#domain
+$domain = $_SERVER['SERVER_NAME'];
 
-#Enter Your URL of the jsdelivr or other
-$cdn = 'https://cdn.jsdelivr.net/gh/Creeper2077/random-api@master';
+#URL of the jsdelivr
+$cdn = 'https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main';
 
 # Get Folder
 if(isset($_GET['game']) && $_GET['game']='ys') {

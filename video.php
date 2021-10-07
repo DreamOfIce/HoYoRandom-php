@@ -3,7 +3,7 @@
 $files = array();
 
 #Enter Your domain
-$domain = getenv('DOMAIN');
+$domain = $_SERVER['SERVER_NAME'];
 
 # Get Folder
 if(isset($_GET['game']) && $_GET['game']='ys') {

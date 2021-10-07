@@ -24,18 +24,12 @@
 >	b站 崩坏3 的动态分享  
 [下载地址](https://download.creeper2077.online/random-api/bh3wallpapaer.zip)  
 ***
-2. 崩3原神音乐合集  
+2. 崩3&原神音乐合集  
 **网易云歌单**  
 > 可配合*aplayer*实现随机播放  
-> ID:6990221411  
+> playlist ID:6990221411  
 > [网页链接](https://music.163.com/#/playlist?id=6990221411)  
 
-**压缩文件** 
-_943MB_ 
-> 音质较低 128Kbps  
-> 适用于网页  
-> [下载地址](https://download.creeper2077.online/random-api/music.zip)  
-***
 
 ## 使用方法
 
@@ -134,13 +128,11 @@ function api(){document.write('为世界上所有的美好而战');}
 
 点击下面的按钮进行部署（Heroku自定义域名要绑卡,可以用*cfworker*反代解决)  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api)
-> DOMAIN填你的域名  
 ***  
 ### 部署到VPS  
 
-1. 把源码拷贝到网页目录  
-2. 添加一个名为*domain*的环境变量(值为你的域名)  
-3. 将*nginx_app.conf*的内容添加到*nginx.conf*的*server*部分  
+1. 把源码拷贝到网页目录    
+2. 将*nginx_app.conf*的内容添加到*nginx.conf*的*server*部分  
 
 
 ## 部分内容来源  
@@ -159,10 +151,7 @@ _**HOYO-Mix YYDS**_
 B站  
 [原神](https://space.bilibili.com/401742377)  
 [崩坏3第一偶像~~爱酱~~渡鸦](https://space.bilibili.com/27534330)  
-[花园花玲](https://space.bilibili.com/7966)  
-[多多poi](https://space.bilibili.com/11253297)
 
----
 
 ## LICENSE
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
