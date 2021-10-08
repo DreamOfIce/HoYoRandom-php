@@ -9,10 +9,10 @@
 包括随机图片,随机音乐,随机视频以及一言，可用于网页  
 使用*jsdelivr*CDN  
 如果需求量很大的话请&自已部署副本\自建服务器!  
-目前资源库内容很少，希望大家可以积极贡献\^_\^  
-可以创建 _Issues_ 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)  
-> _部分资源来自互联网，版权归原作者所有_  
-> _代码使用后的风险及产生的后果由使用者承担_  
+目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
+可以创建 *Issues* 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)  
+> *部分资源来自互联网，版权归原作者所有*  
+> *代码使用后的风险及产生的后果由使用者承担*  
 
 ## 我的博客
 [www.creeper2077.online](https://www.creeper2077.online)  
@@ -59,8 +59,8 @@
 ***
 
 ### 一言   
-包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  
-文件位置: bh3_Hitokoto.txt,ys_Hitokoto.txt  
+包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  ヾ(≧▽≦*)o
+文件位置: *bh3_Hitokoto.txt*,*ys_Hitokoto.txt*  
 - 接口  
 		https://random-api.creeper2077.online/hitokoto.php 
 - 参数  
@@ -94,7 +94,7 @@ function api(){document.write('为世界上所有的美好而战');}
 包含网易云音乐中原神,崩3的所有专辑,格式为ogg  
 存放于[music目录](https://github.com/Creeper2077/random-api/tree/main/music)  
 - 接口  
-		https://random-api.creeper2077.online/music
+		https://random-api.creeper2077.online/musi.phpc
 - 参数  
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
@@ -102,9 +102,9 @@ function api(){document.write('为世界上所有的美好而战');}
 默认值:bh3  
  
 -演示  
-*试着刷新页面，音乐会改变哦 GitHub似乎无法显示:-(*  
+*试着刷新页面，音乐会改变哦 (GitHub似乎无法显示)`(*>﹏<*)′*  
 
-<audio id="audio" controls="" preload="none"><source id="mp3" src="https://random-api.creeper2077.online/music"></audio>  
+<audio id="audio" controls="" preload="none"><source id="mp3" src="https://random-api.creeper2077.online/music.php"></audio>  
 ***
 
 ### 随机视频  
@@ -114,7 +114,7 @@ function api(){document.write('为世界上所有的美好而战');}
 
 存放于[video目录](https://github.com/Creeper2077/random-api/tree/main/video)  
 - 接口  
-		https://random-api.creeper2077.online/video
+		https://random-api.creeper2077.online/video.php
 - 参数  
 **game**  
 > 选择目标游戏(三崩子 OR 原神)  
@@ -124,13 +124,13 @@ function api(){document.write('为世界上所有的美好而战');}
 > 试着刷新页面，视频会改变哦  
 
 <video controls="controls" autoplay="autoplay">
-  <source src="https://random-api.creeper2077.online/video" type="video/webm" />
+  <source src="https://random-api.creeper2077.online/video.php" type="video/webm" />
 </video>
 
 ***  
 ### 通用接口
 - 接口  
-		https://random-api.creeper2077.online/api
+		https://random-api.creeper2077.online/api.php
 - 参数  
 
 **type**

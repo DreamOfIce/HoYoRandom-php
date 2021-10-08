@@ -29,7 +29,12 @@ closedir($handle);
 # Init Random
 $random = rand(0, count($files)-1);
 #Generate the URL
+if(isset($_GET['cdn']) && $_GET['cdn']='false') {
+    $url = $domain;
+} else {
+    $url = $cdn;
+}
 
 # Read File
-header("Location:".$cdn.$folder.$files[$random]);
+header("Location:".$url.$folder.$files[$random]);
 ?>
