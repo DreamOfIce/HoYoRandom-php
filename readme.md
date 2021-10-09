@@ -96,7 +96,7 @@
 包含网易云音乐中原神,崩3的所有专辑,格式为ogg  
 存放于[music目录](https://github.com/Creeper2077/random-api/tree/main/music)  
 - 接口  
-		https://random-api.creeper2077.online/musi.php
+		https://random-api.creeper2077.online/music.php
 - 参数  
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
