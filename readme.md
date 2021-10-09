@@ -10,26 +10,25 @@
 使用*jsdelivr*CDN  
 如果需求量很大的话请&自已部署副本\自建服务器!  
 目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
-可以创建 *Issues* 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)  
-> *部分资源来自互联网，版权归原作者所有*  
-> *代码使用后的风险及产生的后果由使用者承担*  
+可以创建 *Issues* 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)    
 
 ## 我的博客
 [www.creeper2077.online](https://www.creeper2077.online)  
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
 
 ## 镜像存储库
-> 本仓库在Github,Gitlab&Bitbucket皆有镜像仓库，你可以在任何一处查看  
+> 本仓库在Github,Gitlab&Bitbucket皆有镜像仓库，你可以在任何一处查看q(≧▽≦q)  
 [Github](https://github.com/Creeper2077/random-api)  
 [Gitlab](https://gitlab.com/Creeper2077/random-api)  
 [Bitbucket](https://bitbucket.org/creeper2077/random-api)  
 
 ## 资源整理
-1. 崩3壁纸（1920*1080）共360张，*JPG&PNG* **1GB**  
+整理了一下资源,想要的可以自行下载
+1. 崩3壁纸（1920*1080）共372张，*JPG&PNG* **1GB**  
 > 来源:崩崩崩官网  
 >	b站 崩坏3 _**第三**_ 偶像爱酱 的动态分享  
 >	b站 崩坏3 的动态分享  
-[下载地址](https://download.creeper2077.online/random-api/bh3wallpapaer.zip)  
+[下载地址](https://download.creeper2077.online/random-api/bh3_wallpapaer.7z)  
 ***
 2. 崩3&原神音乐合集  
 **网易云歌单**  
@@ -75,7 +74,7 @@
 - 返回值  
 *encode=js*      
 ``` javascript
-function api(){document.write('为世界上所有的美好而战');}
+(function hitokoto(){var hitokoto='为世界上所有的美好而战';var dom=document.querySelector('#hitokoto');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()
 ```
 *encode=json*
 ```json
@@ -87,6 +86,9 @@ function api(){document.write('为世界上所有的美好而战');}
 ```
 -演示  
 > 试着刷新页面，句子会改变哦(需要js)  
+
+<p id="hitokoto">
+<script src="https://random-api.creeper2077.online/hitokoto.php?encode=js" defer></script>
 
 ***
 
@@ -181,3 +183,19 @@ B站
 
 ## LICENSE
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
+
+<script>
+var time;
+var norm_title = document.title;
+document.addEventListener('visibilitychange', function () {
+	if (document.visibilityState == 'hidden') {
+		clearTimeout(time);
+		document.title = '舰长补给全保底，舰长副本零掉落';
+	} else {
+		document.title = '为世界上所有的美好而战';
+		time = setTimeout(function () {
+			document.title = normar_title;
+		}, 3000);
+	}
+});
+</script>
