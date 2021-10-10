@@ -2,6 +2,9 @@
 # Init Array
 $files = array();
 
+#Domain
+$domain = $_SERVER['SERVER_NAME'];
+
 #URL of the jsdelivr
 $cdn = 'https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main';
 

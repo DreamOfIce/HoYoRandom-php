@@ -1,6 +1,6 @@
 <?php
 
-    $domain = getenv('DOMAIN');
+    $domain = $_SERVER['SERVER_NAME'];
     $img_api = '/img.php';
     $hitokoto_api = '/Hitokoto.php';
     $music_api = '/music.php';
