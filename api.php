@@ -34,16 +34,16 @@
 
     switch($_GET['type']) {
         case 'img':
-            header('Location'.$domain.$img_api.'?'.$parm_game.$parm_and.$parm_cdn);
+            header('Location:'.$domain.$img_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
         case 'hitokoto':
-            header('Location'.$domain.$hitokoto_api.'?'.$parm_game.$parm_and.$parm_encode);
+            header('Location:'.$domain.$hitokoto_api.'?'.$parm_game.$parm_and.$parm_encode);
             break;
         case 'music':
-            header('Location'.$domain.$music_api.'?'.$parm_game.$parm_and.$parm_cdn);
+            header('Location:'.$domain.$music_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
         case 'video':
-            header('Location'.$domain.$video_api.'?'.$parm_game);
+            header('Location:'.$domain.$video_api.'?'.$parm_game);
             break;
         default:
             die('Input Error');
