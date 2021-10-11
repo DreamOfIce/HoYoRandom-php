@@ -1,6 +1,6 @@
 <?php
 
-    $domain = $_SERVER['SERVER_NAME'];
+    $domain = 'https://'.$_SERVER['SERVER_NAME'];
     $img_api = '/img.php';
     $hitokoto_api = '/Hitokoto.php';
     $music_api = '/music.php';
@@ -26,15 +26,21 @@
         $parm_cdn = '';
     }
 
+    if((isset($_GET['encode']) && $_GET['type']=='hitokoto' || $_GET['type'] != 'hitokoto' && isset($_GET['cdn'])) && isset($_GET['game'])) {
+        $parm_and = '&';
+    } else {
+        $parm_and = '';
+    }
+
     switch($_GET['type']) {
         case 'img':
-            header('Location'.$domain.$img_api.'?'.$parm_game.$parm_cdn);
+            header('Location'.$domain.$img_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
-        case 'Hitokoto':
-            header('Location'.$domain.$hitokoto_api.'?'.$parm_game.$parm_encode);
+        case 'hitokoto':
+            header('Location'.$domain.$hitokoto_api.'?'.$parm_game.$parm_and.$parm_encode);
             break;
         case 'music':
-            header('Location'.$domain.$music_api.'?'.$parm_game.$parm_cdn);
+            header('Location'.$domain.$music_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
         case 'video':
             header('Location'.$domain.$video_api.'?'.$parm_game);

@@ -3,7 +3,7 @@
 $files = array();
 
 #Enter Your domain
-$domain = $_SERVER['SERVER_NAME'];
+$domain = 'https://'.$_SERVER['SERVER_NAME'];
 
 # Get Folder
 if(isset($_GET['game']) && $_GET['game']='ys') {
