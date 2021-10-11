@@ -8,9 +8,12 @@
 
 包括随机图片,随机音乐,随机视频以及一言，可用于网页  
 使用*jsdelivr*CDN  
-如果需求量很大的话请&自已部署副本\自建服务器!  
+如果需求量很大的话请自已部署!  
 目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
 可以创建 *Issues* 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)    
+
+> 查看英文版(README_en.md)
+> Also available in English(README_en.md)!
 
 ## 我的博客
 [www.creeper2077.online](https://www.creeper2077.online)  
@@ -51,7 +54,7 @@
 可选值:bh3 ys  
 默认值:bh3  
 
--演示  
+- 演示  
 *试着刷新页面，图片会改变哦*  
 ![崩3随机图片](https://random-api.creeper2077.online/img.php "这是随机的哦")  
 ![原神随机图片](https://random-api.creeper2077.online/img.php?game=ys "这是随机的哦")  
@@ -85,7 +88,7 @@
 ```
 为世界上所有的美好而战
 ```
--演示  
+- 演示  
 > 试着刷新页面，句子会改变哦(需要js)  
 
 <p id="hitokoto">
@@ -104,7 +107,7 @@
 可选值:bh3 ys  
 默认值:bh3  
  
--演示  
+- 演示  
 *试着刷新页面，音乐会改变哦 (GitHub似乎无法显示)`(*>﹏<*)′*  
 
 <audio id="audio" controls="" preload="none"><source id="mp3" src="https://random-api.creeper2077.online/music.php"></audio>  
@@ -131,7 +134,8 @@
 </video>
 
 ***  
-### 通用接口
+### 通用接口  
+> 此通用接口会将数据重定向至各个接口
 - 接口  
 		https://random-api.creeper2077.online/api.php
 - 参数  
