@@ -25,13 +25,13 @@ jobs:
           ssh_private_key:
             ${{ secrets.BACKUP_KEY }}
 
-    to_codeberg:
+  mirrot_to_codeberg:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: pixta-dev/repository-mirroring-action@v1
-      with:
-        target_repo_url:
-          git@codeberg.org:creeper2077/random-api.git
-        ssh_private_key:
-          ${{ secrets.BACKUP_KEY }}
+     - uses: actions/checkout@v1
+     - uses: pixta-dev/repository-mirroring-action@v1
+       with:
+         target_repo_url:
+           git@codeberg.org:creeper2077/random-api.git
+         ssh_private_key:
+           ${{ secrets.BACKUP_KEY }}
