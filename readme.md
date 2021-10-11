@@ -17,10 +17,11 @@
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
 
 ## 镜像存储库
-> 本仓库在Github,Gitlab&Bitbucket皆有镜像仓库，你可以在任何一处查看q(≧▽≦q)  
+> 本仓库在Github,Gitlab,Bitbucket&Codebreg皆有镜像仓库，你可以在任何一处查看q(≧▽≦q)  
 [Github](https://github.com/Creeper2077/random-api)  
 [Gitlab](https://gitlab.com/Creeper2077/random-api)  
 [Bitbucket](https://bitbucket.org/creeper2077/random-api)  
+[Codebreg](https://codeberg.org/creeper2077/random-api)
 
 ## 资源整理
 整理了一下资源,想要的可以自行下载
