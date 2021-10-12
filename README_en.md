@@ -13,7 +13,6 @@ I hope you can make positive contributions O(∩_∩)O
 You can create a *Issues* OR mail to [feedback@creeper2077.online](mailto:feedback@creeper077.online)    
 
 **简体中文请见README.md!**
-**See README.md for simplified Chinese!**
 
 ## WARN! Part of this paper is AI aided translation!
 
@@ -92,7 +91,7 @@ Store in[/music](https://github.com/Creeper2077/random-api/tree/main/music)
 > bh3(*Honkai3rd*) OR ys(*Genshin*)  
 Allow:bh3 ys  
 Default value:bh3  
- 
+
 - Demonstration  
 *Try to refresh the page, the music will change( •̀ ω •́ )✧*  
 
@@ -119,7 +118,7 @@ Default value:bh3
   <source src="https://random-api.creeper2077.online/video.php" type="video/webm" />
 </video>
 
-***  
+***
 ### Currency API
 - API  
 		https://random-api.creeper2077.online/api.php
@@ -145,12 +144,26 @@ Default value:text
 ### Deploy on Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api)
-***  
+***
 ### Deploy to VPS  
 
 1. Copy the source code to the web directory   
 2. Add*nginx_app.conf*to the *server* section of *nginx.conf*
 
+## TODO
+1. Add CDN to the video
+2. Add video classification
 
 ## LICENSE
 > GNU GENERAL PUBLIC LICENSE 3.0
+
+<script>
+//Redirect
+if (document.domain="random-api.creeper2077.online") {
+var lang = navigator.language || navigator.userLanguage;
+lang = lang.substr(0, 2);
+if (lang == "zh") {
+	window.location.replace("https://random-api.creeper2077.online");
+}
+}
+</script>

@@ -185,11 +185,23 @@ B站
 [原神](https://space.bilibili.com/401742377)  
 [崩坏3第一偶像~~爱酱~~渡鸦](https://space.bilibili.com/27534330)  
 
+## TODO
+1. 给视频加上CDN
+2. 添加视频分类
 
 ## LICENSE
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
 
 <script>
+// 根据语言重定向
+if (document.domain="random-api.creeper2077.online") {
+	var lang = navigator.language || navigator.userLanguage;
+	lang = lang.substr(0, 2);
+	if (lang != "zh") {
+		window.location.replace("https://random-api.creeper2077.online/index-en.html");
+	}
+}
+//离开时改变标题
 var time;
 var norm_title = document.title;
 document.addEventListener('visibilitychange', function () {
@@ -199,7 +211,7 @@ document.addEventListener('visibilitychange', function () {
 	} else {
 		document.title = '为世界上所有的美好而战';
 		time = setTimeout(function () {
-			document.title = normar_title;
+			document.title = norm_title;
 		}, 3000);
 	}
 });
