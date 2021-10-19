@@ -12,7 +12,7 @@ If the demand is large, please deploy yourself!
 I hope you can make positive contributions O(∩_∩)O  
 You can create a *Issues* OR mail to [feedback@creeper2077.online](mailto:feedback@creeper077.online)    
 
-**[简体中文](/README.md!)**
+**[简体中文](/README.md)**
 
 Tips:*Part of this paper is AI aided translation!*
 
@@ -41,7 +41,7 @@ You can uncomment the following in *nginx_app.conf* to disable this feature:
 
 ### Random pictures
 Random images 1920*1080,webp  
-Store in [/img](/tree/main/img)  
+Store in [/img](/img)  
 - API  
 		https://random-api.creeper2077.online/img.php
 - Parm  
@@ -93,7 +93,7 @@ Default value:text
 
 ### Random music  
 Contains all albums in Netease cloud music(*128Kbps ogg*)  
-Store in[/music](/tree/main/music)  
+Store in[/music](/music)  
 - API  
 		https://random-api.creeper2077.online/music.php
 - Parm  
@@ -110,7 +110,7 @@ Default value:bh3
 
 ### Random video  
 Random video (*720P 24FPS webm*) 
-Store in[/video](/tree/main/video)  
+Store in[/video](/video)  
 - API  
 		https://random-api.creeper2077.online/video.php
 - Parm  
@@ -146,18 +146,12 @@ Allow:js json text
 Default value:text
 
 ## HOW TO DEPLOY 
-### Deploy to Heroku(Not recommended)
-Demo:
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api)
-
-***
-
 ### Deploy to Koyeb
 Demo:
 *Koyeb is still in internal test. After registration, a waiting page will pop up. You need to contact the staff to open it*
 When the following interface appears after login, it indicates that the account has been opened:
 ![koyeb dashboard](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-dashboard.png)
-1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>此仓库;
+1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>this repo;
 2. Uncomment the following in *nginx_app.conf* to disable this feature:
 ```ini
 #Forced use of CDN to save traffic
@@ -174,14 +168,22 @@ NOTICE:
 + Koyeb provide $5 of monthly usage credit for free
 + Transfer:100GB free, $0.04/GB afterwards.
 ***
-
+### Deploy to other PaaS platforms
+Theoretically, the koyeb tutorial is basically applicable to other similar platforms. However, because the warehouse has 1.6gb, some platforms will report errors
+Currently known platforms that cannot be deployed include: *Heroku*, *Glitch*, *Vercel*, *Railway*;
+If you find a new platform that can be deployed for free or a platform that fails to be deployed, please let me know (＾∀＾●) ﾉ
+***
 ### Deploy to VPS  
 
 1. Copy the source code to the web directory   
 2. Add*nginx_app.conf*to the *server* section of *nginx.conf*
 
+## CONFIGURE CDN
+1. cloudflare CDN,need to add ustom rules.(Ordinary speed)
+2.Jsdelivr CDN,very fast.But there is a size limit of 20m, so the videos cannot be accelerated.
+
 ## TODO
-1. ~~Add CDN to the video~~(Finished)
+1. ~~Add CDN to the video~~(Completed!)
 2. Add classification
 
 ## LICENSE

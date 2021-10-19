@@ -57,7 +57,7 @@
 
 ### 随机图片
 随机显示原神或崩坏3的图片，目前全部为1920*1080,webp格式  
-存放于 [img 目录](/tree/main/img)  
+存放于 [img 目录](/img)  
 - 接口  
 		https://random-api.creeper2077.online/img.php
 - 参数  
@@ -109,7 +109,7 @@
 
 ### 随机音乐  
 包含网易云音乐中原神,崩3的所有专辑,格式为ogg  
-存放于[music目录](/tree/main/music)  
+存放于[music目录](/music)  
 - 接口  
 		https://random-api.creeper2077.online/music.php
 - 参数  
@@ -127,7 +127,7 @@
 ### 随机视频  
 目前包含崩3动画短片以及原神EV,分辨率720P 24FPS,格式 *webm* ,为了缩小体积画质有些取舍哈   
 > 注意:无法使用jsdelivr,有20M的大小限制
-存放于[video目录](/tree/main/video)  
+存放于[video目录](/video)  
 - 接口  
 		https://random-api.creeper2077.online/video.php
 - 参数  
@@ -151,26 +151,24 @@
 
 **type**
 > 选择类型
+
 可选值:img hitokoto music video
 
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神) 
+
 可选值:bh3 ys  
 默认值:bh3  
 
 **encode**  
 > 指定返回格式,仅当type=hitokoto时生效  
+
 可选值:js json text   
 默认值:text
 
-## 部署方法 
-### 使用Heroku部署(不推荐)
-> Heroku网站被墙,服务器多数被墙,不推荐使用
-点击下面的按钮进行部署（Heroku自定义域名要绑卡,可以用*cfworker*反代解决)  
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api)
+<span id="deploy"></span>
 
-***  
-
+## 部署 
 ### 使用Koyeb部署
 > *Koyeb仍在内测,注册后会弹出等待页面,需要联系工作人员开通*
 > + 注册并加入Koyeb的Slack
@@ -189,31 +187,43 @@
 3. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
 ![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
 4. 点击部署,大约5分钟就好了.
-
+5. [配置CDN](#config-cdn)(建议)
 注意事项:
 + Koyeb免费额度为\$5每月(今年为\$50/m),所以建议选nano;
 + Koyeb为弹性计费,实际费用会低于标价;
 + Koyeb每个实例免费流量100GB每月,超出部分$0.04/GB.
-
 ***
-
+### 部署到其他PaaS平台
+理论上Koyeb教程基本适用于其他同类平台,不过由于仓库有1.6GB,部分平台会报错
+目前已知无法部署的平台有:*Heroku*,*Glitch*,*Vercel*,*Railway*;
+如果你发现了新的可以免费部署的平台,或者部署失败的平台,请告诉我（＾∀＾●）ﾉｼ
+***
 ### 部署到VPS  
-
 1. 把源码拷贝到网页目录    
-2. 将*nginx_app.conf*的内容添加到*nginx.conf*的*server*部分  
+2. 将*nginx_app.conf*的内容添加到*nginx.conf*的*server*部分
+3. 配置CDN(可选)  
+
+<span id="config-cdn"></span>
+
+### 配置CDN
+将CDN地址写入环境变量 *CDN_ADDR* 即可,以下列举了几种实测可行的白嫖方案:
++ 使用Cloudflare,速度不太理想,配置可参考[这篇文章](https://www.vipiu.net/archives/2019/09/26/2663.html);
++ 使用jsdelivr,速度快,但有20M的大小限制,意味着无法加速视频。另外,有可能被[阻断连接](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)?(未查证)。CDN地址示例；https://cdn.jsdelivr.net/gh/你的用户名/random-api@main
++ 使用静态托管,常见的有Render,netlify等,这里推荐一个新找到的平台[4everland](https://4everland.org/),目前在测试中,没有流量限制:
 
 
 ## 部分内容来源  
 
 ### 崩3图片  
 [三蹦子官网](https://bh3.mihoyo.com/wallpapers)  
-B站 [最惨官号——崩坏3](https://space.bilibili.com/256667467)  
+B站
+[崩坏3](https://space.bilibili.com/256667467)(今超穹?)  
+[崩坏3第一偶像爱酱](https://space.bilibili.com/27534330)  
 
 ### 原神图片  
-[原神官方](https://t.bilibili.com/542713497747206611)  
+B站 [原神](https://t.bilibili.com/542713497747206611)  
 ### 音乐  
 [网易云音乐|HOYO-Mix](https://music.163.com/#/user/home?id=1321189664)  
-_**HOYO-Mix YYDS**_
 
 ### 视频  
 B站  
