@@ -12,9 +12,9 @@ If the demand is large, please deploy yourself!
 I hope you can make positive contributions O(∩_∩)O  
 You can create a *Issues* OR mail to [feedback@creeper2077.online](mailto:feedback@creeper077.online)    
 
-**简体中文请见README.md!**
+**[简体中文](/README.md!)**
 
-## WARN! Part of this paper is AI aided translation!
+Tips:*Part of this paper is AI aided translation!*
 
 ## My blogs
 [www.creeper2077.online](https://www.creeper2077.online)   
@@ -28,9 +28,20 @@ You can create a *Issues* OR mail to [feedback@creeper2077.online](mailto:feedba
 
 ## HOW TO USE
 
+### Force CDN
+> By default, you can use the * CDN = false * parameter to obtain resources directly from the server, which may consume a lot of traffic
+You can uncomment the following in *nginx_app.conf* to disable this feature:
+```ini
+#Forced use of CDN to save traffic
+#location ~* \.(webp|ogg|webm)$ {
+#return 404;
+#}
+```
+***
+
 ### Random pictures
 Random images 1920*1080,webp  
-Store in [/img](https://github.com/Creeper2077/random-api/tree/main/img)  
+Store in [/img](/tree/main/img)  
 - API  
 		https://random-api.creeper2077.online/img.php
 - Parm  
@@ -48,7 +59,6 @@ Default value:bh3
 
 ### Hitokoto   
 Tip: the content is in Chinese  ヾ(≧▽≦*)o
-Store in: *bh3_Hitokoto.txt*,*ys_Hitokoto.txt*  
 - API  
 		https://random-api.creeper2077.online/hitokoto.php 
 - Parm  
@@ -83,7 +93,7 @@ Default value:text
 
 ### Random music  
 Contains all albums in Netease cloud music(*128Kbps ogg*)  
-Store in[/music](https://github.com/Creeper2077/random-api/tree/main/music)  
+Store in[/music](/tree/main/music)  
 - API  
 		https://random-api.creeper2077.online/music.php
 - Parm  
@@ -100,10 +110,7 @@ Default value:bh3
 
 ### Random video  
 Random video (*720P 24FPS webm*) 
-**Without CDN, because jsdelivr has a maximum size of 20MB**  
-> In view of the large bandwidth required for video, it is recommended to build it by yourself![Deploy on Heroku free](#deploy)  
-
-Store in[/video](https://github.com/Creeper2077/random-api/tree/main/video)  
+Store in[/video](/tree/main/video)  
 - API  
 		https://random-api.creeper2077.online/video.php
 - Parm  
@@ -139,20 +146,43 @@ Allow:js json text
 Default value:text
 
 ## HOW TO DEPLOY 
-<span id="deploy"></span>
-
-### Deploy on Heroku
-
+### Deploy to Heroku(Not recommended)
+Demo:
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api)
+
 ***
+
+### Deploy to Koyeb
+Demo:
+*Koyeb is still in internal test. After registration, a waiting page will pop up. You need to contact the staff to open it*
+When the following interface appears after login, it indicates that the account has been opened:
+![koyeb dashboard](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-dashboard.png)
+1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>此仓库;
+2. Uncomment the following in *nginx_app.conf* to disable this feature:
+```ini
+#Forced use of CDN to save traffic
+#location ~* \.(webp|ogg|webm)$ {
+#return 404;
+#}
+```
+3. Click the *DeployMyFirstApp* button;
+4. Sample configuration：
+![config](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
+5. Click the Deploy button.
+6. Enjoy it!
+NOTICE:
++ Koyeb provide $5 of monthly usage credit for free
++ Transfer:100GB free, $0.04/GB afterwards.
+***
+
 ### Deploy to VPS  
 
 1. Copy the source code to the web directory   
 2. Add*nginx_app.conf*to the *server* section of *nginx.conf*
 
 ## TODO
-1. Add CDN to the video
-2. Add video classification
+1. ~~Add CDN to the video~~(Finished)
+2. Add classification
 
 ## LICENSE
 > GNU GENERAL PUBLIC LICENSE 3.0

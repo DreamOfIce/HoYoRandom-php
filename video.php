@@ -2,8 +2,8 @@
 # Init Array
 $files = array();
 
-#Enter Your domain
-$domain = 'https://'.$_SERVER['SERVER_NAME'];
+#URL of the CDN
+$cdn = $cdn = $_ENV['CDN_ADDR'];
 
 # Get Folder
 if(isset($_GET['game']) && $_GET['game']='ys') {
@@ -28,13 +28,10 @@ if($handle = opendir($path)) {
 closedir($handle);
 # Init Random
 $random = rand(0, count($files)-1);
+
 #Generate the URL
 if(isset($_GET['cdn']) && $_GET['cdn']='false') {
-    $url = $domain;
+    header("Location:".$folder.$files[$random]);
 } else {
-    $url = $cdn;
+    header("Location:".$cdn.$folder.$files[$random]);
 }
-
-# Read File
-header("Location:".$url.$folder.$files[$random]);
-?>

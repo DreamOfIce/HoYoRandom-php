@@ -6,17 +6,17 @@
 
 [TOC]
 
-包括随机图片,随机音乐,随机视频以及一言，可用于网页  
-使用*jsdelivr*CDN  
+包括原神&崩坏3精选图片、音乐、视频以及名台词
+支持自定义CDN  
 如果需求量很大的话请自已部署!  
+萌新边学边做,希望大家多多担待q(≧▽≦q)
 目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
-可以创建 *Issues* 或发邮件至[feedback@creeper2077.online](mailto:feedback@creeper077.online)    
+发现bug可以创建 *Issues* 或发[邮件](mailto:feedback@creeper077.online)给我    
 
-> 查看英文版(README_en.md)
-> Also available in English(README_en.md)!
+> Also available in [English](/README_en.md)!
 
 ## 我的博客
-[www.creeper2077.online](https://www.creeper2077.online)  
+[我的博客](https://www.creeper2077.online)  
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
 
 ## 镜像存储库
@@ -28,11 +28,11 @@
 
 ## 资源整理
 整理了一下资源,想要的可以自行下载
-1. 崩3壁纸（1920*1080）共372张，*JPG&PNG* **1GB**  
+1. 崩3壁纸（1920*1080）共382张，*JPG&PNG* **1GB**  
 > 来源:崩崩崩官网  
 >	b站 崩坏3 _**第三**_ 偶像爱酱 的动态分享  
 >	b站 崩坏3 的动态分享  
-[下载地址](https://download.creeper2077.online/random-api/bh3_wallpapaer.7z)  
+[下载地址](https://gitea.com/creeper2077/honkai3-wallpaper/archive/201016.zip)  
 ***
 2. 崩3&原神音乐合集  
 **网易云歌单**  
@@ -43,9 +43,21 @@
 
 ## 使用方法
 
+### 强制使用CDN
+> 默认可以使用*cdn=false*参数直接从服务器获取资源,可能消耗大量流量  
+可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
+```ini
+#Forced use of CDN to save traffic
+#location ~* \.(webp|ogg|webm)$ {
+#return 404;
+#}
+```
+
+***
+
 ### 随机图片
 随机显示原神或崩坏3的图片，目前全部为1920*1080,webp格式  
-存放于 [img 目录](https://github.com/Creeper2077/random-api/tree/main/img)  
+存放于 [img 目录](/tree/main/img)  
 - 接口  
 		https://random-api.creeper2077.online/img.php
 - 参数  
@@ -63,7 +75,6 @@
 
 ### 一言   
 包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  ヾ(≧▽≦*)o
-文件位置: *bh3_Hitokoto.txt*,*ys_Hitokoto.txt*  
 - 接口  
 		https://random-api.creeper2077.online/hitokoto.php 
 - 参数  
@@ -98,7 +109,7 @@
 
 ### 随机音乐  
 包含网易云音乐中原神,崩3的所有专辑,格式为ogg  
-存放于[music目录](https://github.com/Creeper2077/random-api/tree/main/music)  
+存放于[music目录](/tree/main/music)  
 - 接口  
 		https://random-api.creeper2077.online/music.php
 - 参数  
@@ -115,10 +126,8 @@
 
 ### 随机视频  
 目前包含崩3动画短片以及原神EV,分辨率720P 24FPS,格式 *webm* ,为了缩小体积画质有些取舍哈   
-**未使用CDN,jsdelivr有20M的最大大小限**  
-> 鉴于视频所需的带宽较大，建议自行搭建 [使用Heroku免费搭建](#deploy)  
-
-存放于[video目录](https://github.com/Creeper2077/random-api/tree/main/video)  
+> 注意:无法使用jsdelivr,有20M的大小限制
+存放于[video目录](/tree/main/video)  
 - 接口  
 		https://random-api.creeper2077.online/video.php
 - 参数  
@@ -155,13 +164,39 @@
 默认值:text
 
 ## 部署方法 
-<span id="deploy"></span>
-
-### 使用Heroku部署
-
+### 使用Heroku部署(不推荐)
+> Heroku网站被墙,服务器多数被墙,不推荐使用
 点击下面的按钮进行部署（Heroku自定义域名要绑卡,可以用*cfworker*反代解决)  
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Creeper2077/random-api)
+
 ***  
+
+### 使用Koyeb部署
+> *Koyeb仍在内测,注册后会弹出等待页面,需要联系工作人员开通*
+> + 注册并加入Koyeb的Slack
+> + @负责人,表明你已有想部署的内容,使用Git部署
+> + 慢慢等吧o(￣┰￣*)ゞ
+登陆后出现以下界面时,说明账号已开通:
+![koyeb控制台](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-dashboard.png)
+1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>此仓库;
+2. 将*nginx_app.conf*中以下内容取消注释(节省流量):
+```ini
+#Forced use of CDN to save traffic
+#location ~* \.(webp|ogg|webm)$ {
+#return 404;
+#}
+```
+3. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
+![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
+4. 点击部署,大约5分钟就好了.
+
+注意事项:
++ Koyeb免费额度为\$5每月(今年为\$50/m),所以建议选nano;
++ Koyeb为弹性计费,实际费用会低于标价;
++ Koyeb每个实例免费流量100GB每月,超出部分$0.04/GB.
+
+***
+
 ### 部署到VPS  
 
 1. 把源码拷贝到网页目录    
@@ -186,7 +221,7 @@ B站
 [崩坏3第一偶像~~爱酱~~渡鸦](https://space.bilibili.com/27534330)  
 
 ## TODO
-1. 给视频加上CDN
+1. ~~给视频加上CDN~~(已完成)
 2. 添加视频分类
 
 ## LICENSE
