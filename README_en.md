@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/cover.png "Honkai&Genshin")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/banner.png "Honkai&Genshin")
 
 <a href="https://github.com/Creeper2077/random-api/stargazers"><img style="display: inline" src="https://img.shields.io/github/stars/Creeper2077/random-api?style=social"></a>  <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a> <a href="https://github.com/Creeper2077/random-api"><img style="display: inline" src="https://img.shields.io/github/downloads/Creeper2077/random-api/total?style=social"></a>
 
@@ -29,12 +29,12 @@ Tips:*Part of this paper is AI aided translation!*
 ## HOW TO USE
 
 ### Force CDN
-By default, the Random-API uses CDN to transmit pictures and music, and the source server to transmit video (considering jsdelivr users)
+By default, the Random-API uses CDN to transmit pictures,music and video.
 However, you can still obtain resources directly from the server through the *CDN* parameter, which may consume a lot of traffic
 You can uncomment the following in *nginx_app.conf* to disable this feature:
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg)$ {
+#location ~* \.(webp|ogg|webm)$ {
 #return 404;
 #}
 ```
@@ -156,7 +156,7 @@ When the following interface appears after login, it indicates that the account 
 2. Uncomment the following in *nginx_app.conf* to disable this feature:
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg)$ {
+#location ~* \.(webp|ogg|webm)$ {
 #return 404;
 #}
 ```
@@ -181,8 +181,10 @@ If you find a new platform that can be deployed for free or a platform that fail
 2. Add*nginx_app.conf*to the *server* section of *nginx.conf*
 
 ## CONFIGURE CDN
+Add the URL of CDN to the env *CDN_ADDR*(must start with *https://*)
+There are some free choices below:
 1. cloudflare CDN,need to add ustom rules.(Ordinary speed)
-2.Jsdelivr CDN,very fast.But there is a size limit of 20m, so the videos cannot be accelerated.
+2.Jsdelivr CDN.It's very fast.But there is a size limit of 20m, so the videos cannot be accelerated.
 
 ## TODO
 1. ~~Add CDN to the video~~(Completed!)

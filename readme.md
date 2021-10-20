@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/cover.png "超级缝合怪")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/banner.jpg "超级缝合怪")
 
 <a href="https://github.com/Creeper2077/random-api/stargazers"><img style="display: inline" src="https://img.shields.io/github/stars/Creeper2077/random-api?style=social"></a>  <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a> <a href="https://github.com/Creeper2077/random-api"><img style="display: inline" src="https://img.shields.io/github/downloads/Creeper2077/random-api/total?style=social"></a>
 
@@ -44,12 +44,12 @@
 ## 使用方法
 
 ### 强制使用CDN
-默认情况下,Random-API使用CDN来传输图片和音乐,使用源服务器传输视频(考虑Jsdelivr用户).
+默认情况下,Random-API使用CDN来传输图片、音乐和视频.
 但仍可以通过*cdn*参数直接从服务器获取资源,这可能消耗大量流量.
 你可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg)$ {
+#location ~* \.(webp|ogg|webm)$ {
 #return 404;
 #}
 ```
@@ -181,7 +181,7 @@
 2. 将*nginx_app.conf*中以下内容取消注释(节省流量):
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg)$ {
+#location ~* \.(webp|ogg|webm)$ {
 #return 404;
 #}
 ```
@@ -205,11 +205,15 @@
 3. 配置CDN(可选)  
 
 ### 配置CDN
-将CDN地址写入环境变量 *CDN_ADDR* 即可,以下列举了几种实测可行的白嫖方案:
+将CDN地址写入环境变量 *CDN_ADDR* 即可(以*https://*开头),以下列举了几种实测可行的白嫖方案:
 + 使用Cloudflare,速度不太理想,配置可参考[这篇文章](https://www.vipiu.net/archives/2019/09/26/2663.html);
 + 使用jsdelivr,速度快,但有20M的大小限制,意味着无法加速视频。另外,有可能被[阻断连接](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)?(未查证)。CDN地址示例；https://cdn.jsdelivr.net/gh/你的用户名/random-api@main
 + 使用静态托管,常见的有Render,netlify等,这里推荐一个新找到的平台[4everland](https://4everland.org/),目前在测试中,没有流量限制:
-
+1. 打开官网,点击*Start Deploying*,Github授权后点击*New Project*新建项目；
+2. 选择你Fork的存储库,后面全部默认即可;
+3. 慢慢等待(￣o￣) . z Z,直到部署状态变为*Success*（我花了4小时).
+4. 我在部署过程中遇到了卡在*Running*数小时的情况,如果超过8小时还没有变成*Syncing*或*Success*,建议将整个项目彻底删除,重新开始;
+5. 将项目的域名写入环境变量*CDN_ADDR*.
 
 ## 部分内容来源  
 
@@ -260,3 +264,4 @@ document.addEventListener('visibilitychange', function () {
 	}
 });
 </script>
+

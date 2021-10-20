@@ -30,8 +30,8 @@ closedir($handle);
 $random = rand(0, count($files)-1);
 
 #Generate the URL
-if(isset($_GET['cdn']) && $_GET['cdn']='true') {
-    header("Location:".$cdn.$folder.$files[$random]);
-} else {
+if(isset($_GET['cdn']) && $_GET['cdn']='false') {
     header("Location:".$folder.$files[$random]);
+} else {
+    header("Location:".$cdn.$folder.$files[$random]);
 }
