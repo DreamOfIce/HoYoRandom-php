@@ -32,7 +32,7 @@
 > 来源:崩崩崩官网  
 >	b站 崩坏3 _**第三**_ 偶像爱酱 的动态分享  
 >	b站 崩坏3 的动态分享  
-[下载地址](https://gitea.com/creeper2077/honkai3-wallpaper/archive/201016.zip)  
+[下载地址](https://gitea.com/creeper2077/honkai3-wallpaper/archive/211020.zip)  
 ***
 2. 崩3&原神音乐合集  
 **网易云歌单**  
@@ -44,11 +44,12 @@
 ## 使用方法
 
 ### 强制使用CDN
-> 默认可以使用*cdn=false*参数直接从服务器获取资源,可能消耗大量流量  
-可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
+默认情况下,Random-API使用CDN来传输图片和音乐,使用源服务器传输视频(考虑Jsdelivr用户).
+但仍可以通过*cdn*参数直接从服务器获取资源,这可能消耗大量流量.
+你可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
+#location ~* \.(webp|ogg)$ {
 #return 404;
 #}
 ```
@@ -180,21 +181,21 @@
 2. 将*nginx_app.conf*中以下内容取消注释(节省流量):
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
+#location ~* \.(webp|ogg)$ {
 #return 404;
 #}
 ```
 3. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
 ![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
 4. 点击部署,大约5分钟就好了.
-5. [配置CDN](#config-cdn)(建议)
+5. [配置CDN](#配置cdn)(建议)
 注意事项:
 + Koyeb免费额度为\$5每月(今年为\$50/m),所以建议选nano;
 + Koyeb为弹性计费,实际费用会低于标价;
 + Koyeb每个实例免费流量100GB每月,超出部分$0.04/GB.
 ***
 ### 部署到其他PaaS平台
-理论上Koyeb教程基本适用于其他同类平台,不过由于仓库有1.6GB,部分平台会报错
+理论上Koyeb教程基本适用于其他同类平台,不过由于仓库有1.33GB,部分平台会报错
 目前已知无法部署的平台有:*Heroku*,*Glitch*,*Vercel*,*Railway*;
 如果你发现了新的可以免费部署的平台,或者部署失败的平台,请告诉我（＾∀＾●）ﾉｼ
 ***
@@ -202,8 +203,6 @@
 1. 把源码拷贝到网页目录    
 2. 将*nginx_app.conf*的内容添加到*nginx.conf*的*server*部分
 3. 配置CDN(可选)  
-
-<span id="config-cdn"></span>
 
 ### 配置CDN
 将CDN地址写入环境变量 *CDN_ADDR* 即可,以下列举了几种实测可行的白嫖方案:

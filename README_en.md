@@ -29,11 +29,12 @@ Tips:*Part of this paper is AI aided translation!*
 ## HOW TO USE
 
 ### Force CDN
-> By default, you can use the * CDN = false * parameter to obtain resources directly from the server, which may consume a lot of traffic
+By default, the Random-API uses CDN to transmit pictures and music, and the source server to transmit video (considering jsdelivr users)
+However, you can still obtain resources directly from the server through the *CDN* parameter, which may consume a lot of traffic
 You can uncomment the following in *nginx_app.conf* to disable this feature:
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
+#location ~* \.(webp|ogg)$ {
 #return 404;
 #}
 ```
@@ -155,7 +156,7 @@ When the following interface appears after login, it indicates that the account 
 2. Uncomment the following in *nginx_app.conf* to disable this feature:
 ```ini
 #Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
+#location ~* \.(webp|ogg)$ {
 #return 404;
 #}
 ```
@@ -163,13 +164,14 @@ When the following interface appears after login, it indicates that the account 
 4. Sample configuration：
 ![config](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
 5. Click the Deploy button.
+5.[ConfigureCDN](#CONFIGURECDN)(recommended)
 6. Enjoy it!
 NOTICE:
 + Koyeb provide $5 of monthly usage credit for free
 + Transfer:100GB free, $0.04/GB afterwards.
 ***
 ### Deploy to other PaaS platforms
-Theoretically, the koyeb tutorial is basically applicable to other similar platforms. However, because the warehouse has 1.6gb, some platforms will report errors
+Theoretically, the koyeb tutorial is basically applicable to other similar platforms. However, because the warehouse has 1.33GB, some platforms will report errors
 Currently known platforms that cannot be deployed include: *Heroku*, *Glitch*, *Vercel*, *Railway*;
 If you find a new platform that can be deployed for free or a platform that fails to be deployed, please let me know (＾∀＾●) ﾉ
 ***

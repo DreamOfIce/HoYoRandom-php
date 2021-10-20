@@ -3,7 +3,7 @@
 $files = array();
 
 #URL of the CDN
-$cdn = $cdn = $_ENV['CDN_ADDR'];
+$cdn = $_ENV['CDN_ADDR'];
 
 # Get Folder
 if(isset($_GET['game']) && $_GET['game']='ys') {
