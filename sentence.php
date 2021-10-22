@@ -14,7 +14,7 @@
     }
         
     //Read one line at random
-    $sentence  = trim(array_rand($sentences));
+    $sentence  = trim($sentences[array_rand($sentences)]);
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
