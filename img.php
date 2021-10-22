@@ -13,8 +13,8 @@ switch ($_GET['game'])
         $folder = array_rand($folders);
 }
 # Get the file list
-$files = scandir(__DIR__.$folder);
-unset($files[array_search('.',$files)],$files[array_search('..',$files)]);
+$files = scandir(__DIR__.$folder,0);
+unset($files[0],$files[1]);
 
 #Redirect
 if(isset($_GET['cdn']) && $_GET['cdn']='false') {
