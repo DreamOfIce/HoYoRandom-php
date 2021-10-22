@@ -62,7 +62,7 @@
 
 ***
 
-### 台词   
+### 名台词   
 包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  ヾ(≧▽≦*)o
 - 接口  
 		https://random-api.creeper2077.online/sentence.php 

@@ -1,5 +1,5 @@
 <?php
-    //读入所有句子
+    //Read all sentence
     switch ($_GET['game'])
     {
         case 'bh3':
@@ -13,12 +13,12 @@
             break;
     }
         
-    //Read one line at random
+    //Choose one line at random
     $sentence  = trim($sentences[array_rand($sentences)]);
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
-        echo 'document.write('.$sentence.');';
+        echo "document.write('".$sentence."');";
     }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
         header('Content-type:text/json');
         $sentence = array('text'=>$sentence);
