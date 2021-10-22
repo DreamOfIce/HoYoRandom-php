@@ -14,16 +14,16 @@
     }
         
     //Read one line at random
-    $sentence  = trim(array_rand($senctences));
+    $sentence  = trim(array_rand($sentences));
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
         echo 'document.write('.$sentence.');';
     }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
         header('Content-type:text/json');
-        $senctence = array('text'=>$senctence);
-        echo json_encode($senctence, JSON_UNESCAPED_UNICODE);
+        $sentence = array('text'=>$sentence);
+        echo json_encode($sentence, JSON_UNESCAPED_UNICODE);
     }else {
-        echo $senctence;
+        echo $sentence;
     }
 ?>

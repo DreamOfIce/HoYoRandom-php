@@ -3,10 +3,10 @@
 switch ($_GET['game'])
 {
     case 'bh3':
-        $folder = '/video/bh3';
+        $folder = '/video/bh3/';
         break;
     case 'ys':
-        $folder = '/video/ys';
+        $folder = '/video/ys/';
         break;
     default:
         $folders = array('/video/ys/','/video/bh3/');
