@@ -1,41 +1,25 @@
 <?php
-# Init Array
-$files = array();
-
-#URL of the jsdelivr
-$cdn = $_ENV['CDN_ADDR'];
-
 # Get Folder
 switch ($_GET['game'])
 {
     case 'bh3':
-        $file = file($path.'/music/bh3/');
+        $folder = '/music/bh3';
         break;
     case 'ys':
-        $file = file($path.'/music/ys/');
+        $folder = '/music/ys';
         break;
     default:
-        $file = file($path.array_rand(array('/music/ys/','/music/bh3/')));
+        $folders = array('/music/ys/','/music/bh3/');
+        $folder = array_rand($folders);
 }
+# Get the file list
+$files = scandir(__DIR__.$folder);
+unset($files[array_search('.')],$files[array_search('..')]);
 
-# Set Full Path
-$path = $_SERVER['DOCUMENT_ROOT'] . '/' . $folder;
-# Open Directory
-if($handle = opendir($path)) {
-# Loop Through Directory
-    while(false !== ($file = readdir($handle))) {
-        if ($file != "." && $file != "..") {
-            if(substr($file, -3) == 'ogg') $files[count($files)] = $file;
-        }
-    }
-}
-# Close Handle
-closedir($handle);
-# Init Random
-$random = rand(0, count($files)-1);
-#Generate the URL
+#Redirect
 if(isset($_GET['cdn']) && $_GET['cdn']='false') {
-    header("Location:".$folder.$files[$random]);
+    header("Location:".$folder.array_rand($files));
 } else {
-    header("Location:".$cdn.$folder.$files[$random]);
+    header("Location:".$_ENV['CDN_ADDR'].$folder.array_rand($files));
 }
+?>

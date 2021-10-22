@@ -1,18 +1,5 @@
-User-agent: Googlebot
+# robots.txt
+User-agent: *
 Disallow: 
-User-agent: googlebot-image
-Disallow: 
-User-agent: googlebot-mobile
-Disallow: 
-User-agent: MSNBot
-Disallow: 
-User-agent: Slurp
-Disallow: 
-User-agent: baiduspider
-Disallow: 
-User-agent: yahoo-mmcrawler
-Disallow: 
-User-agent: psbot
-Disallow: 
-User-agent: asterias
-Disallow: 
+Crawl-delay: 60
+Disallow: /res

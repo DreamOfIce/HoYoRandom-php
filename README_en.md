@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/banner.jpg "Honkai&Genshin")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/banner.jpg "Honkai&Genshin")
 
 <a href="https://github.com/Creeper2077/random-api/stargazers"><img style="display: inline" src="https://img.shields.io/github/stars/Creeper2077/random-api?style=social"></a>  <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a> <a href="https://github.com/Creeper2077/random-api"><img style="display: inline" src="https://img.shields.io/github/downloads/Creeper2077/random-api/total?style=social"></a>
 
@@ -18,6 +18,7 @@ If you have any suggession , please [Email me](mailto:feedback@creeper077.online
 Tips:*Part of this paper is AI aided translation!*
 
 ## My blogs
+[Projetc site](https://random-api.creeper2077.online)
 [www.creeper2077.online](https://www.creeper2077.online)   
 
 ## Mirror
@@ -152,7 +153,7 @@ Default value:text
 (https://random-api-mccreeper2077.koyeb.app)
 *Koyeb is still in internal test. After registration, a waiting page will pop up. You need to contact the staff to open it*
 When the following interface appears after login, it indicates that the account has been opened:
-![koyeb dashboard](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-dashboard.png)
+![koyeb dashboard](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-dashboard.png)
 1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>this repo;
 2. Uncomment the following in *nginx_app.conf* to disable this feature:
 ```ini
@@ -163,9 +164,8 @@ When the following interface appears after login, it indicates that the account 
 ```
 3. Click the *DeployMyFirstApp* button;
 4. Sample configuration：
-![config](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
+![config](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-deploy.png)
 5. Click the Deploy button.
-5.[ConfigureCDN](#CONFIGURECDN)(recommended)
 6. Enjoy it!
 NOTICE:
 + Koyeb provide $5 of monthly usage credit for free

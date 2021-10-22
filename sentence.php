@@ -1,30 +1,29 @@
 <?php
-    //Get the Folder
-    $path = dirname(__FILE__);
+    //读入所有句子
     switch ($_GET['game'])
     {
         case 'bh3':
-            $file = file($path.'/bh3_Sentence.txt');
+            $sentences = file('sentence/bh3.txt');
             break;
         case 'ys':
-            $file = file($path.'/ys_Sentence.txt');
+            $sentences = file('sentence/ys.txt');
             break;
         default:
-            $file = file($path.array_rand(array('/ys_Sentence.txt','/bh3_Sentence.txt')));
+            $sentences = array_merge(file('sentence/bh3.txt'),file('sentenceys.txt'));
+            break;
     }
         
     //Read one line at random
-    $arr  = mt_rand( 0, count( $file ) - 1 );
-    $content  = trim($file[$arr]);
+    $senctence  = array_rand($senctences);
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
-        echo "(function hitokoto(){var hitokoto='" . $content ."';var dom=document.querySelector('#hitokoto');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()";
+        echo 'document.write('.$sentence.');';
     }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
         header('Content-type:text/json');
-        $content = array('text'=>$content);
-        echo json_encode($content, JSON_UNESCAPED_UNICODE);
+        $senctence = array('text'=>$senctence);
+        echo json_encode($senctence, JSON_UNESCAPED_UNICODE);
     }else {
-        echo $content;
+        echo $senctence;
     }
 ?>

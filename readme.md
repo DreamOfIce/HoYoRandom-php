@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/banner.jpg "超级缝合怪")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/banner.jpg "超级缝合怪")
 
 <a href="https://github.com/Creeper2077/random-api/stargazers"><img style="display: inline" src="https://img.shields.io/github/stars/Creeper2077/random-api?style=social"></a>  <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a> <a href="https://github.com/Creeper2077/random-api"><img style="display: inline" src="https://img.shields.io/github/downloads/Creeper2077/random-api/total?style=social"></a>
 
@@ -8,7 +8,7 @@
 
 包括原神&崩坏3精选图片、音乐、视频以及名台词.
 *支持自定义CDN*  
-你可以直接用我提供的服务,或者免费部署到Koyeb&部署到自己的服务器
+你可以直接用我提供的服务,或者免费部署到Koyeb&自己的服务器
 萌新的第一个项目,请多多指教q(≧▽≦q)
 目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
 投稿&意见可以在底部[留言](#留言板)或发[邮件](mailto:feedback@creeper077.online)给我    
@@ -16,7 +16,7 @@
 > Also available in [English](/README_en.md)!
 
 ## 项目地址
-推荐前往以下网站查看,部分预览在Git上不可用
+推荐前往以下网站查看,部分预览在Github上不可用
 [项目网站](https://random-api.creeper2077.online)  
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
 
@@ -78,7 +78,7 @@
 - 返回值  
 *encode=js*      
 ``` javascript
-(function hitokoto(){var hitokoto='为世界上所有的美好而战';var dom=document.querySelector('#hitokoto');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()
+document.write('为世界上所有的美好而战');
 ```
 *encode=json*
 ```json
@@ -165,7 +165,7 @@
 > + @负责人,表明你已有想部署的内容,使用Git部署
 > + 慢慢等吧o(￣┰￣*)ゞ
 登陆后出现以下界面时,说明账号已开通:
-![koyeb控制台](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-dashboard.png)
+![koyeb控制台](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-dashboard.png)
 1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>此仓库;
 2. 将*nginx_app.conf*中以下内容取消注释(节省流量):
 ```ini
@@ -175,7 +175,7 @@
 #}
 ```
 3. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
-![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
+![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-deploy.png)
 4. 点击部署,大约5分钟就好了.
 5. 除非流量超出免费额度,否则直接用Koyeb自带的CDN即可(有香港和新加坡节点)
 注意事项:
@@ -210,6 +210,7 @@ CDN地址填你Fork的仓库的加速地址即可:
 1. 打开官网,点击*Start Deploying*,Github授权后点击*New Project*新建项目；
 2. 选择你Fork的存储库,后面全部默认即可;
 3. 慢慢等待(￣o￣) . z Z,直到部署状态变为*Success*（我花了4小时).
+![部署成功](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/deploy-success.png)
 4. 我在部署过程中遇到了卡在*Running*数小时的情况,如果超过8小时还没有变成*Syncing*或*Success*,建议将整个项目彻底删除,重新开始;
 5. 将项目的域名写入环境变量*CDN_ADDR*.
 
@@ -252,6 +253,7 @@ B站
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
 
 ## 留言板
+*在Github上不可用*
 <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
 <div id="vcomments"></div>
 <script>
