@@ -13,7 +13,7 @@ switch ($_GET['game'])
         $folder = array_rand($folders);
 }
 # Get the file list
-$files = scandir(__DIR__.$folder);
+$files = scandir('.'.$folder);
 unset($files[0],$files[1]);
 
 #Redirect

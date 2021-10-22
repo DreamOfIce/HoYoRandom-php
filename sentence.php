@@ -9,12 +9,12 @@
             $sentences = file('sentence/ys.txt');
             break;
         default:
-            $sentences = array_merge(file('sentence/bh3.txt'),file('sentenceys.txt'));
+            $sentences = array_merge(file('sentence/bh3.txt'),file('sentence/ys.txt'));
             break;
     }
         
     //Read one line at random
-    $senctence  = trim(array_rand($senctences));
+    $sentence  = trim(array_rand($senctences));
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
