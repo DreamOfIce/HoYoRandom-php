@@ -1,4 +1,4 @@
-![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/banner.png "Honkai&Genshin")
+![logo](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/banner.jpg "Honkai&Genshin")
 
 <a href="https://github.com/Creeper2077/random-api/stargazers"><img style="display: inline" src="https://img.shields.io/github/stars/Creeper2077/random-api?style=social"></a>  <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a> <a href="https://github.com/Creeper2077/random-api"><img style="display: inline" src="https://img.shields.io/github/downloads/Creeper2077/random-api/total?style=social"></a>
 
@@ -6,11 +6,12 @@
 
 [TOC]
 
-Include random pictures,music,video&Hitokoto  
-Using*jsdelivr*CDN  
-If the demand is large, please deploy yourself! 
-I hope you can make positive contributions O(∩_∩)O  
-You can create a *Issues* OR mail to [feedback@creeper2077.online](mailto:feedback@creeper077.online)    
+Include random pictures,music,video&sentence  
+*Support custom CDN*  
+You can directly use the services I provide, or deploy to koyeb &amp; deploy to your own server for free
+The first project of Mengxin, please give more advice q(≧▽≦q)
+At present, there are few contents in the resource library. I hope you can actively contributeO(∩_∩)O
+If you have any suggession , please [Email me](mailto:feedback@creeper077.online)    
 
 **[简体中文](/README.md)**
 
@@ -58,10 +59,10 @@ Default value:bh3
 
 ***
 
-### Hitokoto   
+### Sentence   
 Tip: the content is in Chinese  ヾ(≧▽≦*)o
 - API  
-		https://random-api.creeper2077.online/hitokoto.php 
+		https://random-api.creeper2077.online/sentence.php 
 - Parm  
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*)  
@@ -87,8 +88,8 @@ Default value:text
 -  Demonstration 
 > Try to refresh the page, the sentence will change( •̀ ω •́ )✧(need JS)  
 
-<p id="hitokoto">
-<script src="https://random-api.creeper2077.online/hitokoto.php?encode=js" defer></script>
+<p id="sentence">
+<script src="https://random-api.creeper2077.online/sentence.php?encode=js" defer></script>
 
 ***
 
@@ -134,7 +135,7 @@ Default value:bh3
 
 **type**
 > type
-Allow:img hitokoto music video
+Allow:img sentence music video
 
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*) 
@@ -142,13 +143,13 @@ Allow:bh3 ys
 Default value:bh3  
 
 **encode**  
-> Specifies the return format,Available if type=hitokoto  
+> Specifies the return format,Available if type=sentence  
 Allow:js json text   
 Default value:text
 
 ## HOW TO DEPLOY 
 ### Deploy to Koyeb
-Demo:
+(https://random-api-mccreeper2077.koyeb.app)
 *Koyeb is still in internal test. After registration, a waiting page will pop up. You need to contact the staff to open it*
 When the following interface appears after login, it indicates that the account has been opened:
 ![koyeb dashboard](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-dashboard.png)
@@ -192,14 +193,3 @@ There are some free choices below:
 
 ## LICENSE
 > GNU GENERAL PUBLIC LICENSE 3.0
-
-<script>
-//Redirect
-if (document.domain="random-api.creeper2077.online") {
-var lang = navigator.language || navigator.userLanguage;
-lang = lang.substr(0, 2);
-if (lang == "zh") {
-	window.location.replace("https://random-api.creeper2077.online");
-}
-}
-</script>

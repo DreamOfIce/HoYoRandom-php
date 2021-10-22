@@ -2,7 +2,7 @@
 
     $domain = 'https://'.$_SERVER['SERVER_NAME'];
     $img_api = '/img.php';
-    $hitokoto_api = '/Hitokoto.php';
+    $sentence_api = '/sentence.php';
     $music_api = '/music.php';
     $video_api = '/video.php';
 
@@ -26,7 +26,7 @@
         $parm_cdn = '';
     }
 
-    if((isset($_GET['encode']) && $_GET['type']=='hitokoto' || $_GET['type'] != 'hitokoto' && isset($_GET['cdn'])) && isset($_GET['game'])) {
+    if((isset($_GET['encode']) && $_GET['type']=='sentence' || $_GET['type'] != 'sentence' && isset($_GET['cdn'])) && isset($_GET['game'])) {
         $parm_and = '&';
     } else {
         $parm_and = '';
@@ -36,8 +36,8 @@
         case 'img':
             header('Location:'.$domain.$img_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
-        case 'hitokoto':
-            header('Location:'.$domain.$hitokoto_api.'?'.$parm_game.$parm_and.$parm_encode);
+        case 'sentence':
+            header('Location:'.$domain.$sentence_api.'?'.$parm_game.$parm_and.$parm_encode);
             break;
         case 'music':
             header('Location:'.$domain.$music_api.'?'.$parm_game.$parm_and.$parm_cdn);

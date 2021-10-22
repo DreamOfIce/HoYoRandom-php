@@ -6,17 +6,18 @@
 
 [TOC]
 
-包括原神&崩坏3精选图片、音乐、视频以及名台词
-支持自定义CDN  
-如果需求量很大的话请自已部署!  
-萌新边学边做,希望大家多多担待q(≧▽≦q)
+包括原神&崩坏3精选图片、音乐、视频以及名台词.
+*支持自定义CDN*  
+你可以直接用我提供的服务,或者免费部署到Koyeb&部署到自己的服务器
+萌新的第一个项目,请多多指教q(≧▽≦q)
 目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
-发现bug可以创建 *Issues* 或发[邮件](mailto:feedback@creeper077.online)给我    
+投稿&意见可以在底部[留言](#留言板)或发[邮件](mailto:feedback@creeper077.online)给我    
 
 > Also available in [English](/README_en.md)!
 
-## 我的博客
-[我的博客](https://www.creeper2077.online)  
+## 项目地址
+推荐前往以下网站查看,部分预览在Git上不可用
+[项目网站](https://random-api.creeper2077.online)  
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
 
 ## 镜像存储库
@@ -43,19 +44,6 @@
 
 ## 使用方法
 
-### 强制使用CDN
-默认情况下,Random-API使用CDN来传输图片、音乐和视频.
-但仍可以通过*cdn*参数直接从服务器获取资源,这可能消耗大量流量.
-你可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
-```ini
-#Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
-#return 404;
-#}
-```
-
-***
-
 ### 随机图片
 随机显示原神或崩坏3的图片，目前全部为1920*1080,webp格式  
 存放于 [img 目录](/img)  
@@ -65,7 +53,7 @@
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
 可选值:bh3 ys  
-默认值:bh3  
+默认值:随机  
 
 - 演示  
 *试着刷新页面，图片会改变哦*  
@@ -74,15 +62,15 @@
 
 ***
 
-### 一言   
+### 台词   
 包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  ヾ(≧▽≦*)o
 - 接口  
-		https://random-api.creeper2077.online/hitokoto.php 
+		https://random-api.creeper2077.online/sentence.php 
 - 参数  
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
 可选值:bh3 ys  
-默认值:bh3  
+默认值:随机  
 **encode**  
 > 指定返回格式  
 可选值:js json text   
@@ -103,8 +91,8 @@
 - 演示  
 > 试着刷新页面，句子会改变哦(需要js)  
 
-<p id="hitokoto">
-<script src="https://random-api.creeper2077.online/hitokoto.php?encode=js" defer></script>
+<p id="sentence">
+<script src="https://random-api.creeper2077.online/sentence.php?encode=js" defer></script>
 
 ***
 
@@ -117,7 +105,7 @@
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神)  
 可选值:bh3 ys  
-默认值:bh3  
+默认值:随机  
  
 - 演示  
 *试着刷新页面，音乐会改变哦 (GitHub似乎无法显示)`(*>﹏<*)′*  
@@ -135,7 +123,7 @@
 **game**  
 > 选择目标游戏(三崩子 OR 原神)  
 可选值:bh3 ys  
-默认值:bh3  
+默认值:随机  
 - 演示
 > 试着刷新页面，视频会改变哦  
 
@@ -153,7 +141,7 @@
 **type**
 > 选择类型
 
-可选值:img hitokoto music video
+可选值:img sentence music video
 
 **game**  
 > 选择目标游戏(崩崩崩 OR 原神) 
@@ -162,7 +150,7 @@
 默认值:bh3  
 
 **encode**  
-> 指定返回格式,仅当type=hitokoto时生效  
+> 指定返回格式,仅当type=sentence时生效  
 
 可选值:js json text   
 默认值:text
@@ -171,6 +159,7 @@
 
 ## 部署 
 ### 使用Koyeb部署
+查看[DEMO](https://random-api-mccreeper2077.koyeb.app)
 > *Koyeb仍在内测,注册后会弹出等待页面,需要联系工作人员开通*
 > + 注册并加入Koyeb的Slack
 > + @负责人,表明你已有想部署的内容,使用Git部署
@@ -188,7 +177,7 @@
 3. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
 ![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/readme/koyeb-deploy.png)
 4. 点击部署,大约5分钟就好了.
-5. [配置CDN](#配置cdn)(建议)
+5. 除非流量超出免费额度,否则直接用Koyeb自带的CDN即可(有香港和新加坡节点)
 注意事项:
 + Koyeb免费额度为\$5每月(今年为\$50/m),所以建议选nano;
 + Koyeb为弹性计费,实际费用会低于标价;
@@ -204,16 +193,38 @@
 2. 将*nginx_app.conf*的内容添加到*nginx.conf*的*server*部分
 3. 配置CDN(可选)  
 
-### 配置CDN
-将CDN地址写入环境变量 *CDN_ADDR* 即可(以*https://*开头),以下列举了几种实测可行的白嫖方案:
-+ 使用Cloudflare,速度不太理想,配置可参考[这篇文章](https://www.vipiu.net/archives/2019/09/26/2663.html);
-+ 使用jsdelivr,速度快,但有20M的大小限制,意味着无法加速视频。另外,有可能被[阻断连接](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net)?(未查证)。CDN地址示例；https://cdn.jsdelivr.net/gh/你的用户名/random-api@main
-+ 使用静态托管,常见的有Render,netlify等,这里推荐一个新找到的平台[4everland](https://4everland.org/),目前在测试中,没有流量限制:
+## 配置CDN
+将CDN地址写入环境变量 *CDN_ADDR* 即可(一定要以*https://*开头),以下列举了几种实测可行的白嫖方案:
+* Cloudflare
+没有优选IP的情况下速度不太理想,记得要自定义规则配置,缓存webm和ogg(webp会默认缓存)
+
+* Jsdelivr
+速度快,且方便的选择,但有20M的大小限制,意味着无法加速视频。
+CDN地址填你Fork的仓库的加速地址即可:
+示例:https://cdn.jsdelivr.net/gh/你的用户名/random-api@main
+**声明** : 请在使用前阅读并遵守Jsdelivr的[使用协议](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net).珍惜免费服务,切勿滥用!
+造成的任何后果本人概不负责
+
+* 静态托管
+常见的有Render,Netlify等,这里推荐一个新找到的平台[4everland](https://4everland.org/),目前在测试中,没有流量限制:
 1. 打开官网,点击*Start Deploying*,Github授权后点击*New Project*新建项目；
 2. 选择你Fork的存储库,后面全部默认即可;
 3. 慢慢等待(￣o￣) . z Z,直到部署状态变为*Success*（我花了4小时).
 4. 我在部署过程中遇到了卡在*Running*数小时的情况,如果超过8小时还没有变成*Syncing*或*Success*,建议将整个项目彻底删除,重新开始;
 5. 将项目的域名写入环境变量*CDN_ADDR*.
+
+***
+
+### 强制使用CDN
+默认情况下,Random-API使用CDN来传输图片、音乐和视频.
+但仍可以通过*cdn*参数直接从服务器获取资源,这可能消耗大量流量.
+你可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
+```ini
+#Forced use of CDN to save traffic
+#location ~* \.(webp|ogg|webm)$ {
+#return 404;
+#}
+```
 
 ## 部分内容来源  
 
@@ -240,28 +251,114 @@ B站
 ## LICENSE
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
 
+## 留言板
+<script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+<div id="vcomments"></div>
 <script>
-// 根据语言重定向
-if (document.domain="random-api.creeper2077.online") {
-	var lang = navigator.language || navigator.userLanguage;
-	lang = lang.substr(0, 2);
-	if (lang != "zh") {
-		window.location.replace("https://random-api.creeper2077.online/index-en.html");
-	}
-}
-//离开时改变标题
-var time;
-var norm_title = document.title;
-document.addEventListener('visibilitychange', function () {
-	if (document.visibilityState == 'hidden') {
-		clearTimeout(time);
-		document.title = '舰长补给全保底，舰长副本零掉落';
-	} else {
-		document.title = '为世界上所有的美好而战';
-		time = setTimeout(function () {
-			document.title = norm_title;
-		}, 3000);
-	}
-});
+    new Valine({
+        el: '#vcomments',
+        appId: 'jIwmTT4YEtSTcT8ifUpty3Bt-MdYXbMMI',
+        appKey: '6dUHn7r99tYKJ8UkVFIJQhe5',
+        placeholder: '留下你宝贵的建议',
+        Gravatar: 'wavatar',
+        Number: '6',
+        Boolean: true,
+        emojiCDN: 'https://mirrorcdn.bili33.top/',
+        emojiMaps:{
+            "HONKAI3-AIChan1": "HONKAI3-AIChan/12bcb0ea6827654841cfc26a04184188d3bf3c13.gif",
+            "HONKAI3-AIChan2": "HONKAI3-AIChan/2f2de97f9fd55579fc79b62fcae092ad8e011f6f.png",
+            "HONKAI3-AIChan3": "HONKAI3-AIChan/349e21240a038001de7844e40552fbb5c5ca93df.jpg",
+            "HONKAI3-AIChan4": "HONKAI3-AIChan/94526da47cbe6f230c29c8fd6d703260ba93c879.png",
+            "HONKAI3-AIChan5": "HONKAI3-AIChan/9985055e512eaa1f9eda7493ed5a77130e8c5a49.jpg",
+            "HONKAI3-AIChan6": "HONKAI3-AIChan/a6d9c3d9665697d2232e201ff0402f8d5e1c3b10.jpg",
+            "HONKAI3-AIChan8": "HONKAI3-AIChan/d65b36ccae610bc4479209cd6e62bb91b0f76188.jpg",
+            "HONKAI3-Crayon1": "HONKAI3-Crayon/1.gif",
+            "HONKAI3-Crayon2": "HONKAI3-Crayon/10.gif",
+            "HONKAI3-Crayon3": "HONKAI3-Crayon/11.gif",
+            "HONKAI3-Crayon4": "HONKAI3-Crayon/12.gif",
+            "HONKAI3-Crayon5": "HONKAI3-Crayon/13.gif",
+            "HONKAI3-Crayon6": "HONKAI3-Crayon/14.gif",
+            "HONKAI3-Crayon7": "HONKAI3-Crayon/15.gif",
+            "HONKAI3-Crayon8": "HONKAI3-Crayon/16.gif",
+            "HONKAI3-Crayon9": "HONKAI3-Crayon/2.gif",
+            "HONKAI3-Crayon10": "HONKAI3-Crayon/3.gif",
+            "HONKAI3-Crayon11": "HONKAI3-Crayon/4.gif",
+            "HONKAI3-Crayon12": "HONKAI3-Crayon/5.gif",
+            "HONKAI3-Crayon13": "HONKAI3-Crayon/6.gif",
+            "HONKAI3-Crayon14": "HONKAI3-Crayon/7.gif",
+            "HONKAI3-Crayon15": "HONKAI3-Crayon/8.gif",
+            "HONKAI3-Crayon16": "HONKAI3-Crayon/9.gif",
+            "HONKAI3-Daily1": "HONKAI3-Daily/1.gif",
+            "HONKAI3-Daily2": "HONKAI3-Daily/10.gif",
+            "HONKAI3-Daily3": "HONKAI3-Daily/11.gif",
+            "HONKAI3-Daily4": "HONKAI3-Daily/12.gif",
+            "HONKAI3-Daily5": "HONKAI3-Daily/13.gif",
+            "HONKAI3-Daily6": "HONKAI3-Daily/14.gif",
+            "HONKAI3-Daily7": "HONKAI3-Daily/15.gif",
+            "HONKAI3-Daily8": "HONKAI3-Daily/16.gif",
+            "HONKAI3-Daily9": "HONKAI3-Daily/2.gif",
+            "HONKAI3-Daily10": "HONKAI3-Daily/3.gif",
+            "HONKAI3-Daily11": "HONKAI3-Daily/4.gif",
+            "HONKAI3-Daily12": "HONKAI3-Daily/5.gif",
+            "HONKAI3-Daily13": "HONKAI3-Daily/6.gif",
+            "HONKAI3-Daily14": "HONKAI3-Daily/7.gif",
+            "HONKAI3-Daily15": "HONKAI3-Daily/8.gif",
+            "HONKAI3-Daily16": "HONKAI3-Daily/9.gif",
+            "HONKAI3-Durandal-Search1": "HONKAI3-Durandal-Search/041f90df17c5aab87380486fd6f320cb18918d31.gif",
+            "HONKAI3-Durandal-Search2": "HONKAI3-Durandal-Search/36110c3ce45f4a917fc2ff57bfdf481fd21e8046.gif",
+            "HONKAI3-Durandal-Search3": "HONKAI3-Durandal-Search/63bbf9589387af7b66a717826458a12f9c4b8a5d.gif",
+            "HONKAI3-Durandal-Search4": "HONKAI3-Durandal-Search/822416f9df40a319cbc993486008ee9f050b7d82.gif",
+            "HONKAI3-Durandal-Search5": "HONKAI3-Durandal-Search/b67b538d743e0ba32cca7ad8e048e2151e0d3ad4.gif",
+            "HONKAI3-Durandal-Search6": "HONKAI3-Durandal-Search/f1b9a456587638e488d93ccaa95dde59aef3af01.gif",
+            "HONKAI3-MEI1": "HONKAI3-MEI/501ac209b259bb545dea898838c24229483fcfeb.gif",
+            "HONKAI3-MEI2": "HONKAI3-MEI/5baf4306d1f685bf47922fbae365ccfba7721beb.gif",
+            "HONKAI3-MEI3": "HONKAI3-MEI/624857651c863ea9571f5e557fca8516dd41e0fc.gif",
+            "HONKAI3-MEI4": "HONKAI3-MEI/680311714674014d0c17f757eb40c3071448222a.gif",
+            "HONKAI3-MEI5": "HONKAI3-MEI/bf68423446465d396d3cbd8856882b5e9fb1c0c7.gif",
+            "HONKAI3-MEI6": "HONKAI3-MEI/d3a2a9c6ad1e2a0b262dca9354ab8de736d81cdf.gif",
+            "HONKAI3-MEI7": "HONKAI3-MEI/dd0fd1f3668f4907c9f6fcd39c6138417ac0e1f5.gif",
+            "HONKAI3-NEWYEAR-20191": "HONKAI3-NEWYEAR-2019/071bbe280b49a56f56673ca77a184c1a291e9afc.gif",
+            "HONKAI3-NEWYEAR-20192": "HONKAI3-NEWYEAR-2019/74db7cc805ac5d1b84288404e94dbe326d28b9e5.jpg",
+            "HONKAI3-NEWYEAR-20193": "HONKAI3-NEWYEAR-2019/878d2595a745699bb91dbf33cb42ae5b59bfd7b8.jpg",
+            "HONKAI3-NEWYEAR-20194": "HONKAI3-NEWYEAR-2019/882f2334a29fe93338bb71457eff4d897f5616d9.jpg",
+            "HONKAI3-NEWYEAR-20195": "HONKAI3-NEWYEAR-2019/9342f517b5b582ffe12ebd615110c1bf35356a30.gif",
+            "HONKAI3-NEWYEAR-20196": "HONKAI3-NEWYEAR-2019/bbb0028c61d7d42bd2011fabb3f9cc484ddef25e.gif",
+            "HONKAI3-NEWYEAR-20198": "HONKAI3-NEWYEAR-2019/cda9a6db290e994d523d34ae870fa809b9ba918c.gif",
+            "HONKAI3-NEWYEAR-20199": "HONKAI3-NEWYEAR-2019/d98272af4c6c58dee0b50b42c58a5a65acfa6788.gif",
+            "HONKAI3-NEWYEAR-201910": "HONKAI3-NEWYEAR-2019/dc1a2b2032fad29373fe8460d4ad89ca848355a9.jpg",
+            "HONKAI3-Star1": "HONKAI3-Star/1.gif",
+             "HONKAI3-Star2": "HONKAI3-Star/10.gif",
+            "HONKAI3-Star3": "HONKAI3-Star/11.gif",
+            "HONKAI3-Star4": "HONKAI3-Star/12.gif",
+            "HONKAI3-Star5": "HONKAI3-Star/13.gif",
+            "HONKAI3-Star6": "HONKAI3-Star/14.gif",
+            "HONKAI3-Star7": "HONKAI3-Star/15.gif",
+            "HONKAI3-Star8": "HONKAI3-Star/16.gif",
+            "HONKAI3-Star9": "HONKAI3-Star/2.gif",
+            "HONKAI3-Star10": "HONKAI3-Star/3.gif",
+            "HONKAI3-Star11": "HONKAI3-Star/4.gif",
+            "HONKAI3-Star12": "HONKAI3-Star/5.gif",
+            "HONKAI3-Star13": "HONKAI3-Star/6.gif",
+            "HONKAI3-Star14": "HONKAI3-Star/7.gif",
+            "HONKAI3-Star15": "HONKAI3-Star/8.gif",
+            "HONKAI3-Star16": "HONKAI3-Star/9.gif"
+        },
+        requiredFields:['nick']
+    })
 </script>
 
+<script>
+    var time;
+    var norm_title = document.title;
+    document.addEventListener('visibilitychange', function () {
+        if (document.visibilityState == 'hidden') {
+            clearTimeout(time);
+            document.title = '舰长补给全保底，舰长副本零掉落';
+        } else {
+            document.title = '为世界上所有的美好而战';
+            time = setTimeout(function () {
+                document.title = norm_title;
+            }, 3000);
+        }
+    });
+</script>

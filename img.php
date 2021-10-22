@@ -6,11 +6,16 @@ $files = array();
 $cdn = $_ENV['CDN_ADDR'];
 
 # Get Folder
-if(isset($_GET['game']) && $_GET['game']='ys') {
-    $folder = '/img/ys/';
-}else {
-    # Set Default Folder
-    $folder = '/img/bh3/';
+switch ($_GET['game'])
+{
+    case 'bh3':
+        $file = file($path.'/img/bh3/');
+        break;
+    case 'ys':
+        $file = file($path.'/img/ys/');
+        break;
+    default:
+        $file = file($path.array_rand(array('/img/ys/','/img/bh3/')));
 }
 
 # Set Full Path
