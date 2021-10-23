@@ -106,7 +106,7 @@ document.write('为世界上所有的美好而战');
 > 选择目标游戏(崩崩崩 OR 原神)  
 可选值:bh3 ys  
 默认值:随机  
- 
+
 - 演示  
 *试着刷新页面，音乐会改变哦 (GitHub似乎无法显示)`(*>﹏<*)′*  
 
@@ -131,7 +131,7 @@ document.write('为世界上所有的美好而战');
   <source src="https://random-api.creeper2077.online/video.php" type="video/webm" />
 </video>
 
-***  
+***
 ### 通用接口  
 > 此通用接口会将数据重定向至各个接口
 - 接口  
@@ -167,18 +167,15 @@ document.write('为世界上所有的美好而战');
 登陆后出现以下界面时,说明账号已开通:
 ![koyeb控制台](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-dashboard.png)
 1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>此仓库;
-2. 将*nginx_app.conf*中以下内容取消注释(节省流量):
-```ini
-#Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
-#return 404;
-#}
-```
-3. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
-![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-deploy.png)
-4. 点击部署,大约5分钟就好了.
-5. 除非流量超出免费额度,否则直接用Koyeb自带的CDN即可(有香港和新加坡节点)
-注意事项:
+
+2. 进入Koyeb控制台,点击*DeployMyFirstApp*,配置如下;
+   ![配置](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-deploy.png)
+
+3. 点击部署,大约5分钟就好了.
+
+4. 除非流量超出免费额度,否则直接用Koyeb自带的CDN即可(有香港和新加坡节点)
+   注意事项:
+
 + Koyeb免费额度为\$5每月(今年为\$50/m),所以建议选nano;
 + Koyeb为弹性计费,实际费用会低于标价;
 + Koyeb每个实例免费流量100GB每月,超出部分$0.04/GB.

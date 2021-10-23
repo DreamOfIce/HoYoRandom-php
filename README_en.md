@@ -155,14 +155,7 @@ Default value:text
 When the following interface appears after login, it indicates that the account has been opened:
 ![koyeb dashboard](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-dashboard.png)
 1. <a href="https://github.com/Creeper2077/random-api/network/members"><img style="display: inline" src="https://img.shields.io/github/forks/Creeper2077/random-api?style=social"></a>this repo;
-2. Uncomment the following in *nginx_app.conf* to disable this feature:
-```ini
-#Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
-#return 404;
-#}
-```
-3. Click the *DeployMyFirstApp* button;
+2. Click the *DeployMyFirstApp* button;
 4. Sample configuration：
 ![config](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/koyeb-deploy.png)
 5. Click the Deploy button.
