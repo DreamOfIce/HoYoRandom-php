@@ -82,7 +82,7 @@
 - 返回值  
 *encode=js*      
 ``` javascript
-document.querySelector(#sentence).innerText='为世界上所有的美好而战';
+document.querySelector('#sentence').innerText='为世界上所有的美好而战';
 ```
 *encode=json*
 ```json

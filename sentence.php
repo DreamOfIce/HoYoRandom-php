@@ -28,7 +28,7 @@
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
-        echo "document.querySelector(".$selete.").innerText='".$sentence."';";
+        echo "document.querySelector('".$selete."').innerText='".$sentence."';";
     }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
         header('Content-type:text/json');
         $sentence = array('text'=>$sentence);
