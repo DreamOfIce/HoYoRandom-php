@@ -75,10 +75,14 @@
 > 指定返回格式  
 可选值:js json text   
 默认值:text  
+**selete**  
+> 指定选择器,配合*encode=js*使用   
+默认值:#sentence
+  
 - 返回值  
 *encode=js*      
 ``` javascript
-document.write('为世界上所有的美好而战');
+document.querySelector(#sentence).innerText='为世界上所有的美好而战';
 ```
 *encode=json*
 ```json

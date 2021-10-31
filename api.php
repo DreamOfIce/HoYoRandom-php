@@ -1,6 +1,5 @@
 <?php
 
-    $domain = 'https://'.$_SERVER['SERVER_NAME'];
     $img_api = '/img.php';
     $sentence_api = '/sentence.php';
     $music_api = '/music.php';
@@ -34,19 +33,19 @@
 
     switch($_GET['type']) {
         case 'img':
-            header('Location:'.$domain.$img_api.'?'.$parm_game.$parm_and.$parm_cdn);
+            header('Location:'.$img_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
         case 'sentence':
-            header('Location:'.$domain.$sentence_api.'?'.$parm_game.$parm_and.$parm_encode);
+            header('Location:'.$sentence_api.'?'.$parm_game.$parm_and.$parm_encode);
             break;
         case 'music':
-            header('Location:'.$domain.$music_api.'?'.$parm_game.$parm_and.$parm_cdn);
+            header('Location:'.$music_api.'?'.$parm_game.$parm_and.$parm_cdn);
             break;
         case 'video':
-            header('Location:'.$domain.$video_api.'?'.$parm_game);
+            header('Location:'.$video_api.'?'.$parm_game);
             break;
         default:
-            die('Input Error');
+            die('Input Error!');
     }
 
 

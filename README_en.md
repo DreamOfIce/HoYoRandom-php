@@ -30,7 +30,7 @@ Tips:*Part of this paper is AI aided translation!*
 
 ## HOW TO USE
 
-### Force CDN
+### Force use CDN
 By default, the Random-API uses CDN to transmit pictures,music and video.
 However, you can still obtain resources directly from the server through the *CDN* parameter, which may consume a lot of traffic
 You can uncomment the following in *nginx_app.conf* to disable this feature:
@@ -51,7 +51,7 @@ Store in [/img](/img)
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*)
 Allow:bh3 ys  
-Default value:bh3  
+Default:Random  
 
 - Demonstration  
 *Try to refresh the page, the picture will change( •̀ ω •́ )✧*  
@@ -61,22 +61,28 @@ Default value:bh3
 ***
 
 ### Sentence   
-Tip: the content is in Chinese  ヾ(≧▽≦*)o
+Tip: the sentences are in Chinese  ヾ(≧▽≦*)o
 - API  
 		https://random-api.creeper2077.online/sentence.php 
 - Parm  
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*)  
 Allow:bh3 ys  
-Default value:bh3  
+Default:Random  
+
 **encode**  
 > Specifies the return format  
 Allow:js json text   
-Default value:text  
+Default:text  
+
+**selete**
+> Specfies the selete(use with *encode=js*)
+Default:#sentence
+
 - Return value  
 *encode=js*      
 ``` javascript
-(function hitokoto(){var hitokoto='为世界上所有的美好而战';var dom=document.querySelector('#hitokoto');Array.isArray(dom)?dom[0].innerText=hitokoto:dom.innerText=hitokoto;})()
+document.querySelector(#sentence).innerText='为世界上所有的美好而战';
 ```
 *encode=json*
 ```json
@@ -103,7 +109,7 @@ Store in[/music](/music)
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*)  
 Allow:bh3 ys  
-Default value:bh3  
+Default:Random  
 
 - Demonstration  
 *Try to refresh the page, the music will change( •̀ ω •́ )✧*  
@@ -120,7 +126,7 @@ Store in[/video](/video)
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*)  
 Allow:bh3 ys  
-Default value:bh3  
+Default:Random  
 - Demonstration
 > Try to refresh the page, the video will change( •̀ ω •́ )✧  
 
@@ -141,12 +147,16 @@ Allow:img sentence music video
 **game**  
 > bh3(*Honkai3rd*) OR ys(*Genshin*) 
 Allow:bh3 ys  
-Default value:bh3  
+Default:Random  
 
 **encode**  
-> Specifies the return format,Available if type=sentence  
+> Specifies the return format(use with *type=sentence*)  
 Allow:js json text   
-Default value:text
+Default:text
+
+**selete**
+> Specfies the selete(use with *encode=js*)
+Default:#sentence
 
 ## HOW TO DEPLOY 
 ### Deploy to Koyeb
