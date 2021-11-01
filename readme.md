@@ -257,15 +257,16 @@ B站
 ## 留言板
 *在Github上不可用,请前往[项目网站](https://random-api.creeper2077.online/#%E7%95%99%E8%A8%80%E6%9D%BF)*
 
-<script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
-<div id="vcomments"></div>
+<script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+<div id="messageboard"></div>
 <script>
     new Valine({
-        el: '#vcomments',
+        el: '#messageboard',
         appId: 'jIwmTT4YEtSTcT8ifUpty3Bt-MdYXbMMI',
         appKey: '6dUHn7r99tYKJ8UkVFIJQhe5',
-        placeholder: '留下你宝贵的建议',
+        placeholder: '留下点什么φ(゜▽゜*)♪',
         Gravatar: 'wavatar',
+        visitor: true,
         Number: '6',
         Boolean: true,
         emojiCDN: 'https://mirrorcdn.bili33.top/',
@@ -348,7 +349,7 @@ B站
             "HONKAI3-Star15": "HONKAI3-Star/8.gif",
             "HONKAI3-Star16": "HONKAI3-Star/9.gif"
         },
-        requiredFields:['nick']
+        requiredFields:['nick','mail']
     })
 </script>
 
