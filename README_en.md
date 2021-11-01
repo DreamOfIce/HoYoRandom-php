@@ -17,7 +17,8 @@ If you have any suggession , please leave a message on the [message board](https
 
 Tips:*Part of this paper is AI aided translation!*
 
-## My blogs
+## My sites
+
 [Projetc site](https://random-api.creeper2077.online)
 [www.creeper2077.online](https://www.creeper2077.online)   
 
