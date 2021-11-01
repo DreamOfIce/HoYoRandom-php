@@ -16,7 +16,8 @@
 > Also available in [English](/README_en.md)!
 
 ## 项目地址
-推荐前往以下网站查看,部分预览在Github上不可用
+> 推荐前往以下网站查看,部分预览在Github上不可用
+
 [项目网站](https://random-api.creeper2077.online)  
 [在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
 
