@@ -78,7 +78,7 @@
 **selete**  
 > 指定选择器,配合*encode=js*使用   
 默认值:#sentence
-  
+
 - 返回值  
 *encode=js*      
 ``` javascript
@@ -254,7 +254,8 @@ B站
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
 
 ## 留言板
-*在Github上不可用*
+*在Github上不可用,请前往[项目网站](https://random-api.creeper2077.online/#%E7%95%99%E8%A8%80%E6%9D%BF)*
+
 <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
 <div id="vcomments"></div>
 <script>

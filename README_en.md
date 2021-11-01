@@ -11,7 +11,7 @@ Include random pictures,music,video&sentence
 You can directly use the services I provide, or deploy to koyeb &amp; deploy to your own server for free
 The first project of Mengxin, please give more advice q(≧▽≦q)
 At present, there are few contents in the resource library. I hope you can actively contributeO(∩_∩)O
-If you have any suggession , please [Email me](mailto:feedback@creeper077.online)    
+If you have any suggession , please leave a message on the [message board](https://random-api.creeper2077.online/#%E7%95%99%E8%A8%80%E6%9D%BF) or[Email me](mailto:feedback@creeper077.online)    
 
 **[简体中文](/README.md)**
 
