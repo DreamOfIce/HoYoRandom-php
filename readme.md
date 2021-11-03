@@ -132,7 +132,7 @@ document.querySelector('#sentence').innerText='为世界上所有的美好而战
 - 演示
 > 试着刷新页面，视频会改变哦  
 
-<video controls="controls" autoplay="autoplay">
+<video controls="controls">
   <source src="https://random-api.creeper2077.online/video.php" type="video/webm" />
 </video>
 
@@ -248,8 +248,10 @@ B站
 [崩坏3第一偶像~~爱酱~~渡鸦](https://space.bilibili.com/27534330)  
 
 ## TODO
-1. ~~给视频加上CDN~~(已完成)
-2. 添加视频分类
+- [x] 给视频加上CDN
+- [ ] 从Git获取文件列表,使API与资源分离
+- [x] 提高较小视频的画质
+- [ ] 使用nodejs重写(远期,可能取消)
 
 ## LICENSE
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权

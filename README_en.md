@@ -131,7 +131,7 @@ Default:Random
 - Demonstration
 > Try to refresh the page, the video will change( •̀ ω •́ )✧  
 
-<video controls="controls" autoplay="autoplay">
+<video controls="controls">
   <source src="https://random-api.creeper2077.online/video.php" type="video/webm" />
 </video>
 
