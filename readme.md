@@ -259,7 +259,7 @@ B站
 ## 留言板
 *在Github上不可用,请前往[项目网站](https://random-api.creeper2077.online/#%E7%95%99%E8%A8%80%E6%9D%BF)*
 
-<script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
 <div id="messageboard"></div>
 <script>
     new Valine({
@@ -354,19 +354,4 @@ B站
         requiredFields:['nick','mail']
     })
 </script>
-
-<script>
-    var time;
-    var norm_title = document.title;
-    document.addEventListener('visibilitychange', function () {
-        if (document.visibilityState == 'hidden') {
-            clearTimeout(time);
-            document.title = '舰长补给全保底，舰长副本零掉落';
-        } else {
-            document.title = '为世界上所有的美好而战';
-            time = setTimeout(function () {
-                document.title = norm_title;
-            }, 3000);
-        }
-    });
-</script>
+<script src='https://cdn.jsdelivr.net/gh/Creeper2077/honkai-change-title@main/change-title.min.js' ></script>
