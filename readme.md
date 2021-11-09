@@ -259,6 +259,7 @@ B站
 ## 留言板
 *在Github上不可用,请前往[项目网站](https://random-api.creeper2077.online/#%E7%95%99%E8%A8%80%E6%9D%BF)*
 
+<span id="random-api" class="leancloud_visitors"></span>
 <script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
 <div id="messageboard"></div>
 <script>
