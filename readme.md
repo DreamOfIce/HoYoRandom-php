@@ -30,11 +30,10 @@
 
 ## 资源整理
 整理了一下资源,想要的可以自行下载
-1. 崩3壁纸（1920*1080）共382张，*JPG&PNG* **1GB**  
-> 来源:崩崩崩官网  
->	b站 崩坏3 _**第三**_ 偶像爱酱 的动态分享  
->	b站 崩坏3 的动态分享  
-[下载地址](https://gitea.com/creeper2077/honkai3-wallpaper/archive/211020.zip)  
+1. 崩3壁纸（原图）约1GB
+持续更新,放在coding上
+[项目链接](https://creeper2077.coding.net/p/hobby/d/honkai3-wallpaper/git)
+[下载地址](https://creeper2077.coding.net/p/hobby/d/honkai3-wallpaper/git/archive/211115.zip)  
 ***
 2. 崩3&原神音乐合集  
 **网易云歌单**  
@@ -58,7 +57,7 @@
 
 - 演示  
 *试着刷新页面，图片会改变哦*  
-![崩3随机图片](https://random-api.creeper2077.online/img.php "这是随机的哦")  
+![崩3随机图片](https://random-api.creeper2077.online/img.php?game=bh3 "这是随机的哦")  
 ![原神随机图片](https://random-api.creeper2077.online/img.php?game=ys "这是随机的哦")  
 
 ***
@@ -102,7 +101,7 @@ document.querySelector('#sentence').innerText='为世界上所有的美好而战
 ***
 
 ### 随机音乐  
-包含网易云音乐中原神,崩3的所有专辑,格式为ogg  
+包含网易云音乐中原神,崩3的所有专辑,格式为mp3  
 存放于[music目录](/music)  
 - 接口  
 		https://random-api.creeper2077.online/music.php
