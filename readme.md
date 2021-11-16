@@ -259,7 +259,7 @@ B站
 *在Github上不可用,请前往[项目网站](https://random-api.creeper2077.online/#%E7%95%99%E8%A8%80%E6%9D%BF)*
 
 <span id="random-api" class="leancloud_visitors"></span>
-<script src='https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
+<script src='//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js'></script>
 <div id="messageboard"></div>
 <script>
     new Valine({
@@ -268,11 +268,12 @@ B站
         appKey: '6dUHn7r99tYKJ8UkVFIJQhe5',
         placeholder: '留下点什么φ(゜▽゜*)♪',
         Gravatar: 'wavatar',
+        path: window.location.host+window.location.pathname,
         visitor: true,
         Number: '6',
         Boolean: true,
         emojiCDN: 'https://mirrorcdn.bili33.top/',
-        emojiMaps:{
+        emojiMaps: {
             "HONKAI3-AIChan1": "HONKAI3-AIChan/12bcb0ea6827654841cfc26a04184188d3bf3c13.gif",
             "HONKAI3-AIChan2": "HONKAI3-AIChan/2f2de97f9fd55579fc79b62fcae092ad8e011f6f.png",
             "HONKAI3-AIChan3": "HONKAI3-AIChan/349e21240a038001de7844e40552fbb5c5ca93df.jpg",
@@ -335,7 +336,7 @@ B站
             "HONKAI3-NEWYEAR-20199": "HONKAI3-NEWYEAR-2019/d98272af4c6c58dee0b50b42c58a5a65acfa6788.gif",
             "HONKAI3-NEWYEAR-201910": "HONKAI3-NEWYEAR-2019/dc1a2b2032fad29373fe8460d4ad89ca848355a9.jpg",
             "HONKAI3-Star1": "HONKAI3-Star/1.gif",
-             "HONKAI3-Star2": "HONKAI3-Star/10.gif",
+            "HONKAI3-Star2": "HONKAI3-Star/10.gif",
             "HONKAI3-Star3": "HONKAI3-Star/11.gif",
             "HONKAI3-Star4": "HONKAI3-Star/12.gif",
             "HONKAI3-Star5": "HONKAI3-Star/13.gif",
@@ -351,7 +352,7 @@ B站
             "HONKAI3-Star15": "HONKAI3-Star/8.gif",
             "HONKAI3-Star16": "HONKAI3-Star/9.gif"
         },
-        requiredFields:['nick','mail']
+        requiredFields: ['nick', 'mail']
     })
 </script>
 <script src='https://cdn.jsdelivr.net/gh/Creeper2077/honkai-change-title@main/change-title.min.js' ></script>
