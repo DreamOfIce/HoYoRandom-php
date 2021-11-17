@@ -32,8 +32,8 @@
 整理了一下资源,想要的可以自行下载
 1. 崩3壁纸（原图）约1GB
 持续更新,放在coding上
-[项目链接](https://creeper2077.coding.net/p/hobby/d/honkai3-wallpaper/git)
-[下载地址](https://creeper2077.coding.net/p/hobby/d/honkai3-wallpaper/git/archive/211115.zip)  
+[项目链接](https://creeper2077.coding.net/public/miHoYo/honkai3-wallpaper/git)
+[下载地址](https://creeper2077.coding.net/p/miHoYo/d/honkai3-wallpaper/git/archive/211117.zip)  
 ***
 2. 崩3&原神音乐合集  
 **网易云歌单**  
@@ -114,7 +114,7 @@ document.querySelector('#sentence').innerText='为世界上所有的美好而战
 - 演示  
 *试着刷新页面，音乐会改变哦 (GitHub似乎无法显示)`(*>﹏<*)′*  
 
-<audio id="audio" controls="" preload="none"><source id="mp3" src="https://random-api.creeper2077.online/music.php"></audio>  
+<audio src="https://random-api.creeper2077.online/music.php" controls="controls" autoplay='autoplay' preload="auto">似乎不支持预览(っ °Д °;)っ</audio>  
 ***
 
 ### 随机视频  
@@ -268,7 +268,7 @@ B站
         appKey: '6dUHn7r99tYKJ8UkVFIJQhe5',
         placeholder: '留下点什么φ(゜▽゜*)♪',
         Gravatar: 'wavatar',
-        path: window.location.host+window.location.pathname,
+        path: 'random-api.creeper2077.online/',
         visitor: true,
         Number: '6',
         Boolean: true,
