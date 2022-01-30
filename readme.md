@@ -11,22 +11,18 @@
 你可以直接用我提供的服务,或者免费部署到Koyeb&自己的服务器
 萌新的第一个项目,请多多指教q(≧▽≦q)
 目前资源库内容很少，希望大家可以积极贡献 O(∩_∩)O  
-投稿&意见可以在底部[留言](#留言板)或发[邮件](mailto:feedback@creeper077.online)给我    
-
-> Also available in [English](/README_en.md)!
+投稿&意见可以在底部[留言](#留言板)或发[邮件](mailto:admin@dreamofice.cn)给我    
 
 ## 项目地址
 > 推荐前往以下网站查看,部分预览在Github上不可用
 
-[项目网站](https://random-api.creeper2077.online)  
-[在我的博客上查看此页面](https://www.creeper2077.online/service/random-api)  
+[项目网站](https://www.dreamofice.cn/project/HoYoRandom/)(暂时不可用)
+[我的博客](https://www.dreamofice.cn/)  
 
 ## 镜像存储库
-> 本仓库在Github,Gitlab,Bitbucket&Codebreg皆有镜像仓库，你可以在任何一处查看q(≧▽≦q)  
+> 你可以在任何一处查看q(≧▽≦q)  
 [Github](https://github.com/Creeper2077/random-api)  
-[Gitlab](https://gitlab.com/Creeper2077/random-api)  
-[Bitbucket](https://bitbucket.org/creeper2077/random-api)  
-[Codebreg](https://codeberg.org/creeper2077/random-api)
+[Coding](https://dreamofice.coding.net/public/public/HoYoRandom-PHP/git/files)  
 
 ## 资源整理
 整理了一下资源,想要的可以自行下载
@@ -206,27 +202,7 @@ CDN地址填你Fork的仓库的加速地址即可:
 **声明** : 请在使用前阅读并遵守Jsdelivr的[使用协议](https://www.jsdelivr.com/terms/acceptable-use-policy-jsdelivr-net).珍惜免费服务,切勿滥用!
 造成的任何后果本人概不负责
 
-* 静态托管
-常见的有Render,Netlify等,这里推荐一个新找到的平台[4everland](https://4everland.org/),目前在测试中,没有流量限制:
-1. 打开官网,点击*Start Deploying*,Github授权后点击*New Project*新建项目；
-2. 选择你Fork的存储库,后面全部默认即可;
-3. 慢慢等待(￣o￣) . z Z,直到部署状态变为*Success*（我花了4小时).
-![部署成功](https://cdn.jsdelivr.net/gh/Creeper2077/random-api@main/res/deploy-success.png)
-4. 我在部署过程中遇到了卡在*Running*数小时的情况,如果超过8小时还没有变成*Syncing*或*Success*,建议将整个项目彻底删除,重新开始;
-5. 将项目的域名写入环境变量*CDN_ADDR*.
-
 ***
-
-### 强制使用CDN
-默认情况下,Random-API使用CDN来传输图片、音乐和视频.
-但仍可以通过*cdn*参数直接从服务器获取资源,这可能消耗大量流量.
-你可以在*nginx_app.conf*中取消注释以下内容以禁用此功能:
-```ini
-#Forced use of CDN to save traffic
-#location ~* \.(webp|ogg|webm)$ {
-#return 404;
-#}
-```
 
 ## 部分内容来源  
 
@@ -250,7 +226,7 @@ B站
 - [x] 给视频加上CDN
 - [ ] 从Git获取文件列表,使API与资源分离
 - [x] 提高较小视频的画质
-- [ ] 使用nodejs重写(远期,可能取消)
+- [ ] 使用nodejs重写
 
 ## LICENSE
 > 本程序使用GNU GENERAL PUBLIC LICENSE 3.0协议授权
