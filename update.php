@@ -2,39 +2,35 @@
 
 #FUNCTIONS
 #Curl get function
-function curlGet($url, $ua, $isJson, $header = array())
+function curlGet($url, $ua, $header = array())
 {
-    $ch = curl_init($url);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
     curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
     curl_setopt($ch, CURLOPT_USERAGENT, $ua);
     $response = curl_exec($ch);
-    echo curl_error($ch) . 'rep:' . $response;
     curl_close($ch);
-    if ($isJson) {
-        return json_decode($response);
-    } else {
-        return $response;
-    }
+    return $response;
 }
 
 #Get the directory
 function getDirectory($repo, $path)
 {
-    $rep = curlGet('https://api.github.com/repos/' . $repo . '/contents/' . $path, 'HoYoRandom-PHP', true);
+    $rep = json_decode(curlGet('https://api.github.com/repos/' . $repo . '/contents' . $path, 'HoYoRandom-PHP'));
     $files = array();
     foreach ($rep as $file) {
-        switch ($file['type']) {
+        switch ($file->type) {
             case 'file':
-                if (!!pcre_match('/\.(png|jpe?g|webp)$/i', $file['name']) && !isset($files[$file['name']])) {
+                if (!!preg_match('/\.(png|jpe?g|webp)$/i', $file->name) && !isset($files[$file->name])) {
                     #add to list of files
-                    $files[$file['name']] = $file['path'];
+                    $files[$file->name] = $file->path;
                 }
                 break;
             case 'dir':
-                if (substr($file['name'], 0, 1) != '.') {
-                    $files = array_merge($files, getDirectory($repo, '/' . $file['path']));
+                if (substr($file->name, 0, 1) != '.') {
+                    $files = array_merge($files, getDirectory($repo, '/' . $file->path));
                 }
                 break;
             default:
@@ -42,6 +38,12 @@ function getDirectory($repo, $path)
         }
     }
     return $files;
+}
+
+#Convent tee array include Chinese to Json
+function toJson($input){
+    $json = json_encode(urlencode($input));
+    return urldecode($json);
 }
 
 #verify the secret
@@ -64,18 +66,18 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA
 }
 
 #get the directory
-if (false){//!isset($_SERVER['RES_REPO_NAME'])) {
+if (!isset($_SERVER['RES_REPO_NAME'])) {
     http_response_code(500);
     die('Server error:RES_REPO_NAME no set!');
 }
-$repo = 'dreamofice/HoYoRandom-php';//$_ENV['RES_REPO_NAME'];
+$repo = $_ENV['RES_REPO_NAME'];
 $files = getDirectory($repo, '/');
 
 #Download the *.hitokoto.json
 foreach ($files as $file) {
-    if (pcre_match('/\.hitokoto\.json$/i', $file['name'])) {
-        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/contents/' . $file['path'], true, 'HoYoRandom-PHP', true)['download_url'];
-        file_put_contents(__DIR__+'../hitokoto/'+$file[name], curlGet($downloadUrl, 'HoYoRandom-PHP'));
+    if (preg_match('/\.hitokoto\.json$/i', $file)) {
+        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/contents/' . $file, true, 'HoYoRandom-PHP', true)->download_url;
+        file_put_contents(__DIR__+'hitokoto/'+$file, curlGet($downloadUrl, 'HoYoRandom-PHP'));
     }
 }
 
@@ -83,5 +85,5 @@ foreach ($files as $file) {
 foreach (array('img', 'music', 'video') as $type) {
 
 }
-file_put_contents(__DIR__ . '../contents.json', json_encode($files));
+file_put_contents(__DIR__ . '../contents.json', toJson($files));
 echo 'Done!';
