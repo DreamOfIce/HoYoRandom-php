@@ -47,10 +47,6 @@ function getDirectory($repo, $path)
 #verify the secret
 function verifySecret($reqBody, $singature)
 {
-    if (!isset($_ENV['WEBHOOK_SECRECT'])) {
-        return true;
-    }
-
     $secret = $_ENV['WEBHOOK_SECRECT'];
     $result = 'sha256='+hash_hmac('sha256', $reqBody, $secret, false);
     return ($result == $singature);
@@ -62,23 +58,23 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
     http_response_code(405);
     die('Method Not Allowed');
 }
-if (verifySecret($GLOBALS['HTTP_RAW_POST_DATA'], $_SERVER['HTTP_X_HUB_SINGATURE_256'])) {
+if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA'], $_SERVER['HTTP_X_HUB_SINGATURE_256'])) {
     http_response_code(403);
     die('Invalid Secret');
 }
 
 #get the directory
-if (!isset($_SERVER['RES_REPO_NAME'])) {
+if (false){//!isset($_SERVER['RES_REPO_NAME'])) {
     http_response_code(500);
     die('Server error:RES_REPO_NAME no set!');
 }
-$repo = $_ENV['RES_REPO_NAME'];
+$repo = 'dreamofice/HoYoRandom-php';//$_ENV['RES_REPO_NAME'];
 $files = getDirectory($repo, '/');
 
 #Download the *.hitokoto.json
 foreach ($files as $file) {
     if (pcre_match('/\.hitokoto\.json$/i', $file['name'])) {
-        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/content/' . $file['path'], true, 'HoYoRandom-PHP', true)['download_url'];
+        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/contents/' . $file['path'], true, 'HoYoRandom-PHP', true)['download_url'];
         file_put_contents(__DIR__+'../hitokoto/'+$file[name], curlGet($downloadUrl, 'HoYoRandom-PHP'));
     }
 }
