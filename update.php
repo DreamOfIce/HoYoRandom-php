@@ -56,15 +56,15 @@ function verifySecret($reqBody, $singature)
 #verify request
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
     http_response_code(405);
-    echo 'Method Not Allowed';
+    die('Method Not Allowed');
 }
 if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA'], $_SERVER['HTTP_X_HUB_SINGATURE_256'])) {
     http_response_code(403);
-    echo 'Invalid Secret';
+    die('Invalid Secret');
 }
 
 #get the directory
-$repo = 'DreamOfIce/HoYoRandom-php';#$_ENV['RES_REPO_NAME'];
+$repo = $_ENV['RES_REPO_NAME'];
 $files = getDirectory($repo, '/');
 
 #Download the *.hitokoto.json
