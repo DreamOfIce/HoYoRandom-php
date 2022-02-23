@@ -1,12 +1,9 @@
 {
-    "name": "creeper2077/randomapi",
+    "name": "dreamofice/hoyorandom-php",
     "description": "Genshin&Honkai random API",
     "type": "project",
-    "authors": [
-        {
-            "name": "Creeper2077",
-            "email": "admin@creeper2077.online"
-        }
-    ]
-   
-  }
+    "authors": [{
+        "name": "冰雪殇璃陌梦",
+        "email": "admin@dreamofice.cn"
+    }]
+}

@@ -6,34 +6,34 @@
     if(isset($_GET['select'])) {
         $game = $_GET['select'];
     } else {
-        $selete = "#sentence";
+        $selete = "#hitokoto";
     }
     
-    //Read all sentence
+    //Read all hitokoto
     switch ($game)
     {
         case 'bh3':
-            $sentences = file('sentence/bh3.txt');
+            $hitokotos = file('hitokoto/bh3.txt');
             break;
         case 'ys':
-            $sentences = file('sentence/ys.txt');
+            $hitokotos = file('hitokoto/ys.txt');
             break;
         default:
-            $sentences = array_merge(file('sentence/bh3.txt'),file('sentence/ys.txt'));
+            $hitokotos = array_merge(file('hitokoto/bh3.txt'),file('hitokoto/ys.txt'));
             break;
     }
         
     //Choose one line at random
-    $sentence  = trim($sentences[array_rand($sentences)]);
+    $hitokoto  = trim($hitokotos[array_rand($hitokotos)]);
 
     //output the js,json or text
     if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
-        echo "document.querySelector('".$selete."').innerText='".$sentence."';";
+        echo "document.querySelector('".$selete."').innerText='".$hitokoto."';";
     }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
         header('Content-type:text/json');
-        $sentence = array('text'=>$sentence);
-        echo json_encode($sentence, JSON_UNESCAPED_UNICODE);
+        $hitokoto = array('text'=>$hitokoto);
+        echo json_encode($hitokoto, JSON_UNESCAPED_UNICODE);
     }else {
-        echo $sentence;
+        echo $hitokoto;
     }
 ?>

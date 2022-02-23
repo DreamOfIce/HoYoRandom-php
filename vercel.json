@@ -1,0 +1,8 @@
+{
+    "cleanUrls": true,
+    "functions": {
+        "/*": {
+            "runtime": "vercel-php@0.4.0"
+        }
+    }
+}
