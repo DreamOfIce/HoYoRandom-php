@@ -47,6 +47,7 @@ function getDirectory($repo, $path)
 #verify the secret
 function verifySecret($reqBody, $singature)
 {
+    if (!isset($_ENV['WEBHOOK_SECRECT'])) return true;
     $secret = $_ENV['WEBHOOK_SECRECT'];
     $result = 'sha256='+hash_hmac('sha256', $reqBody, $secret, false);
     return ($result == $singature);
