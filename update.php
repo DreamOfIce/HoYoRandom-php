@@ -40,12 +40,6 @@ function getDirectory($repo, $path)
     return $files;
 }
 
-#Convent tee array include Chinese to Json
-function toJson($input){
-    $json = json_encode(urlencode($input));
-    return urldecode($json);
-}
-
 #verify the secret
 function verifySecret($reqBody, $singature)
 {
@@ -66,11 +60,11 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA
 }
 
 #get the directory
-if (!isset($_SERVER['RES_REPO_NAME'])) {
+if (false) { //!isset($_SERVER['RES_REPO_NAME'])) {
     http_response_code(500);
     die('Server error:RES_REPO_NAME no set!');
 }
-$repo = $_ENV['RES_REPO_NAME'];
+$repo = 'dreamofice/hoyorandom-php'; //$_ENV['RES_REPO_NAME'];
 $files = getDirectory($repo, '/');
 
 #Download the *.hitokoto.json
@@ -81,9 +75,10 @@ foreach ($files as $file) {
     }
 }
 
+const types = [[name => 'img', prefix => '/img/',suffix =>'.webp'], [name => 'music', prefix => '/music/',suffix=>'.mp3'], [name => 'video', prefix => '/video/',suffix =>'.mp4']];
 #write `contents.json`
-foreach (array('img', 'music', 'video') as $type) {
+foreach ($types as $type) {
 
 }
-file_put_contents(__DIR__ . '../contents.json', toJson($files));
+file_put_contents(__DIR__ . '../contents.json', json_encode($files, JSON_UNESCAPED_UNICODE));
 echo 'Done!';
