@@ -2,13 +2,13 @@
 
 #FUNCTIONS
 #Curl get function
-function curlGet($url, $ua, $header = array())
+function curlGet($url, $ua, $auth = '')
 {
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_USERPWD, $auth);
     curl_setopt($ch, CURLOPT_USERAGENT, $ua);
     $response = curl_exec($ch);
     curl_close($ch);
@@ -18,7 +18,7 @@ function curlGet($url, $ua, $header = array())
 #Get the directory
 function getDirectory($repo, $path)
 {
-    $rep = json_decode(curlGet('https://api.github.com/repos/' . $repo . '/contents' . $path, 'HoYoRandom-PHP'));
+    $rep = json_decode(curlGet('https://api.github.com/repos/' . $repo . '/contents' . $path, 'HoYoRandom-PHP', $GLOBALS['ghAuth']));
     $files = array();
     foreach ($rep as $file) {
         switch ($file->type) {
@@ -59,6 +59,12 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA
     die('Invalid Secret');
 }
 
+#Get the github auth token
+if (isset($_ENV['GITHUB_AUTH'])) {
+    $ghAuth = $_ENV['GITHUB_AUTH'];
+}
+$ghAuth = 'dreamofice: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';
+
 #get the directory
 if (false) { //!isset($_SERVER['RES_REPO_NAME'])) {
     http_response_code(500);
@@ -70,15 +76,11 @@ $files = getDirectory($repo, '/');
 #Download the *.hitokoto.json
 foreach ($files as $file) {
     if (preg_match('/\.hitokoto\.json$/i', $file)) {
-        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/contents/' . $file, true, 'HoYoRandom-PHP', true)->download_url;
-        file_put_contents(__DIR__+'hitokoto/'+$file, curlGet($downloadUrl, 'HoYoRandom-PHP'));
+        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/contents/' . $file, 'HoYoRandom-PHP', $ghAuth)->download_url;
+        file_put_contents(__DIR__+'/hitokoto/'+$file, curlGet($downloadUrl, 'HoYoRandom-PHP'));
     }
 }
 
-const types = [[name => 'img', prefix => '/img/',suffix =>'.webp'], [name => 'music', prefix => '/music/',suffix=>'.mp3'], [name => 'video', prefix => '/video/',suffix =>'.mp4']];
-#write `contents.json`
-foreach ($types as $type) {
+file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE));
 
-}
-file_put_contents(__DIR__ . '../contents.json', json_encode($files, JSON_UNESCAPED_UNICODE));
-echo 'Done!';
+echo 'All Done!';
