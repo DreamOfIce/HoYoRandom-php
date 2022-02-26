@@ -1,39 +1,37 @@
 <?php
-    #Get game and select
-    if(isset($_GET['game'])) {
-        $game = $_GET['game'];
-    }
-    if(isset($_GET['select'])) {
-        $game = $_GET['select'];
-    } else {
-        $selete = "#hitokoto";
-    }
-    
-    //Read all hitokoto
-    switch ($game)
-    {
-        case 'bh3':
-            $hitokotos = file('hitokoto/bh3.txt');
-            break;
-        case 'ys':
-            $hitokotos = file('hitokoto/ys.txt');
-            break;
-        default:
-            $hitokotos = array_merge(file('hitokoto/bh3.txt'),file('hitokoto/ys.txt'));
-            break;
-    }
-        
-    //Choose one line at random
-    $hitokoto  = trim($hitokotos[array_rand($hitokotos)]);
+#Get parameters
+isset($_GET['game']) ? $game = $_GET['game'] : $game = '';
+isset($_GET['encode']) ? $encode = $_GET['encode'] : $encode = 'json';
+isset($_GET['select']) ? $game = $_GET['select'] : $selete = "#hitokoto";
 
-    //output the js,json or text
-    if (isset($_GET['encode']) && $_GET['encode'] == 'js') {
-        echo "document.querySelector('".$selete."').innerText='".$hitokoto."';";
-    }else if(isset($_GET['encode']) && $_GET['encode'] == 'json'){
-        header('Content-type:text/json');
-        $hitokoto = array('text'=>$hitokoto);
-        echo json_encode($hitokoto, JSON_UNESCAPED_UNICODE);
-    }else {
-        echo $hitokoto;
+#read the hitokotos
+$hitokotos = array();
+foreach (scandir(__DIR__ . '/hitokoto/') as $file) {
+    if (is_file(__DIR__ . '/hitokoto/' . $file) && preg_match('/(' . $game . '\.hitokoto\.json)$/i', $file) == 1) {
+        foreach (json_decode(file_get_contents(__DIR__ . '/hitokoto/' . $file)) as $hitokoto) {
+            for ($i = 0; $i < $hitokoto->w; $i++) {
+                array_push($hitokotos, $hitokoto->s);
+            }
+        }
     }
-?>
+}
+
+//Choose one line at random
+$hitokoto = $hitokotos[array_rand($hitokotos)];
+
+//output
+switch ($encode) {
+    case 'text':
+        header('Content-Type: text/plain');
+        header('Charset: UTF-8');
+        echo $hitokoto;
+        break;
+    case 'js':
+        header('Content-Type: application/javascript');
+        echo 'document.querySelector(\'' . $selete . '\').innerText=\'' . $hitokoto . '\';';
+        break;
+    default:
+        header('Content-type:text/json');
+        echo json_encode(array('hitokoto' => $hitokoto), JSON_UNESCAPED_UNICODE);
+        break;
+}
