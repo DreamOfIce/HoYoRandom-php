@@ -1,31 +1,25 @@
 <?php
-    #Get game
-    if(isset($_GET['game'])) {
-        $game = $_GET['game'];
-    }
+//get parameter
+$category = $_GET['game'] ?? '.*';
+$type = $_GET['type'] ?? 'raw';
+$url = $_ENV['RES_URL'] ?? http_response_code(500);die('RES_URL_NOT_DEFINED');
 
-    # Get folder
-    switch ($game)
-    {
-        case 'bh3':
-            $folder = '/img/bh3/';
-            break;
-        case 'ys':
-            $folder = '/img/ys/';
-            break;
-        default:
-            $folders = array('/img/ys/','/img/bh3/');
-            $folder = $folders[array_rand($folders)];
+//generate the list
+$regexp = '/^(img\/' . $category . '\/).*(\.webp)$/i';
+$images = array();
+foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => $path) {
+    if (preg_match($regexp, $path) == 1) {
+        array_push($images, array('name' => $name, 'path' => $path));
     }
+}
 
-    # Get the file list
-    $files = scandir('.'.$folder,0);
-    unset($files[0],$files[1]);
+//get a random image
+$image = $images[array_rand($images)];
 
-    #Redirect
-    if(isset($_GET['cdn']) && $_GET['cdn']='false') {
-        header("Location:".$folder.$files[array_rand($files)]);
-    } else {
-        header("Location:".$_ENV['CDN_ADDR'].$folder.$files[array_rand($files)]);
-    }
-?>
+//output
+if ($type == 'json') {
+    header('Content-Type: application/json');
+    echo json_encode(array('name' => $image['name'], 'url' => $url . $image['path']), JSON_UNESCAPED_UNICODE);
+} else {
+    header("Location:" . $image['path']);
+}

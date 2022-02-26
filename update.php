@@ -65,14 +65,10 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA
 }
 
 #Get the github auth token
-isset($_ENV['GITHUB_AUTH']) ? $ghAuth = $_ENV['GITHUB_AUTH'] : $ghAuth = '';
+$ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
 #get the directory
-if (!isset($_SERVER['RES_REPO_NAME'])) {
-    http_response_code(500);
-    die('Server error:RES_REPO_NAME no set!');
-}
-$repo = $_ENV['RES_REPO_NAME'];
+$repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500);die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
 #Download the *.hitokoto.json
