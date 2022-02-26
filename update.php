@@ -11,6 +11,13 @@ function curlGet($url, $ua, $auth = '')
     curl_setopt($ch, CURLOPT_USERPWD, $auth);
     curl_setopt($ch, CURLOPT_USERAGENT, $ua);
     $response = curl_exec($ch);
+    if (curl_getinfo($ch, CURLINFO_HTTP_CODE) != 200) {
+        //request failed
+        error_log('Curl request failed!' . $response);
+        http_response_code(500);
+        die('An error occurred when request:' . $url);
+        $response = false;
+    }
     curl_close($ch);
     return $response;
 }
@@ -23,10 +30,8 @@ function getDirectory($repo, $path)
     foreach ($rep as $file) {
         switch ($file->type) {
             case 'file':
-                if (!!preg_match('/\.(png|jpe?g|webp)$/i', $file->name) && !isset($files[$file->name])) {
-                    #add to list of files
-                    $files[$file->name] = $file->path;
-                }
+                #add to list
+                $files[$file->name] = $file->path;
                 break;
             case 'dir':
                 if (substr($file->name, 0, 1) != '.') {
@@ -60,24 +65,23 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && verifySecret($GLOBALS['HTTP_RAW_POST_DATA
 }
 
 #Get the github auth token
-if (isset($_ENV['GITHUB_AUTH'])) {
-    $ghAuth = $_ENV['GITHUB_AUTH'];
-}
-$ghAuth = 'dreamofice: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';
+isset($_ENV['GITHUB_AUTH']) ? $ghAuth = $_ENV['GITHUB_AUTH'] : $ghAuth = '';
 
 #get the directory
-if (false) { //!isset($_SERVER['RES_REPO_NAME'])) {
+if (!isset($_SERVER['RES_REPO_NAME'])) {
     http_response_code(500);
     die('Server error:RES_REPO_NAME no set!');
 }
-$repo = 'dreamofice/hoyorandom-php'; //$_ENV['RES_REPO_NAME'];
+$repo = $_ENV['RES_REPO_NAME'];
 $files = getDirectory($repo, '/');
 
 #Download the *.hitokoto.json
-foreach ($files as $file) {
-    if (preg_match('/\.hitokoto\.json$/i', $file)) {
-        $downloadUrl = curlGet('https://api.github.com/repos/' . $_ENV['RES_REPO_NAME'] . '/contents/' . $file, 'HoYoRandom-PHP', $ghAuth)->download_url;
-        file_put_contents(__DIR__+'/hitokoto/'+$file, curlGet($downloadUrl, 'HoYoRandom-PHP'));
+if (!is_dir(__DIR__ . '/hitokoto/')) {
+    mkdir(__DIR__ . '/hitokoto/');
+}
+foreach ($files as $fileName => $filePath) {
+    if (preg_match('/(\.hitokoto\.json)$/i', $fileName) == 1) {
+        file_put_contents(__DIR__ . '/hitokoto/' . $fileName, curlGet('https://cdn.jsdelivr.net/gh/' . $repo . '/' . $filePath, 'HoYoRandom-PHP'));
     }
 }
 
