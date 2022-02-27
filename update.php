@@ -58,7 +58,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
     http_response_code(405);
     die('Method Not Allowed');
 }
-if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://input"), getallheaders['X-Hub-Singature-256'])) {
+if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://input"), getallheaders()['X-Hub-Singature-256'])) {
     http_response_code(403);
     die('Invalid Secret');
 }
