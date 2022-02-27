@@ -71,7 +71,7 @@ $repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500);die('Server error:RES_
 $files = getDirectory($repo, '/');
 
 //write to file
-empty($files) ? http_response_code(500);die('Unable to get the file list') : file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE));
+empty($files) ?  file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500);die('Unable to get the file list');
 
 //download the *.hitokoto.json
 if (!is_dir(__DIR__ . '/hitokoto/')) {
