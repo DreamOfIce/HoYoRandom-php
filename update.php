@@ -1,7 +1,6 @@
 <?php
 
-#FUNCTIONS
-#Curl get function
+//curl get function
 function curlGet($url, $ua, $auth = '')
 {
     $ch = curl_init();
@@ -22,7 +21,7 @@ function curlGet($url, $ua, $auth = '')
     return $response;
 }
 
-#Get the directory
+//get the directory
 function getDirectory($repo, $path)
 {
     $rep = json_decode(curlGet('https://api.github.com/repos/' . $repo . '/contents' . $path, 'HoYoRandom-PHP', $GLOBALS['ghAuth']));
@@ -45,16 +44,16 @@ function getDirectory($repo, $path)
     return $files;
 }
 
-#verify the secret
+//verify the secret
 function verifySecret($reqBody, $singature)
 {
     $secret = $_ENV['WEBHOOK_SECRECT'];
-    $result = 'sha256='+hash_hmac('sha256', $reqBody, $secret, false);
+    $result = 'sha256='.hash_hmac('sha256', $reqBody, $secret, false);
     return ($result == $singature);
 }
 
-#MAIN
-#verify request
+
+//verify request
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
     http_response_code(405);
     die('Method Not Allowed');
@@ -64,14 +63,17 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret($GLOBALS['HTTP_RAW_POST_DAT
     die('Invalid Secret');
 }
 
-#Get the github auth token
+//get the github auth token
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
-#get the directory
+//get the directory
 $repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500);die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
-#Download the *.hitokoto.json
+//write to file
+empty($files) ? http_response_code(500);die('Unable to get the file list') : file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE));
+
+//download the *.hitokoto.json
 if (!is_dir(__DIR__ . '/hitokoto/')) {
     mkdir(__DIR__ . '/hitokoto/');
 }
@@ -80,7 +82,5 @@ foreach ($files as $fileName => $filePath) {
         file_put_contents(__DIR__ . '/hitokoto/' . $fileName, curlGet('https://cdn.jsdelivr.net/gh/' . $repo . '/' . $filePath, 'HoYoRandom-PHP'));
     }
 }
-
-file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE));
 
 echo 'All Done!';
