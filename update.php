@@ -85,6 +85,8 @@ $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 $repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500);die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
+echo $files;
+
 //write to file
 empty($files) ?  file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500);die('Unable to get the file list');
 
