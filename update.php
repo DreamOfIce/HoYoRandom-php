@@ -1,18 +1,4 @@
 <?php
-
-//get all headers
-if (!function_exists('getallheaders')) {
-    function getallheaders()
-    {
-        foreach ($_SERVER as $name => $value) {
-            if (substr($name, 0, 5) == 'HTTP_') {
-                $headers[str_replace(' ', '-', ucwords(strtolower(str_replace('_', ' ', substr($name, 5)))))] = $value;
-            }
-        }
-        return $headers;
-    }
-}
-
 //curl get function
 function curlGet($url, $ua, $auth = '')
 {
@@ -76,7 +62,8 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://in
     die('Invalid Secret');
 }
 
-var_dump($_SERVER);
+http_response_code(500);
+die(var_dump($_SERVER));
 
 //get the github auth token
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
