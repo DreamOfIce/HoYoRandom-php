@@ -47,10 +47,9 @@ function getDirectory($repo, $path)
 function verifySecret($reqBody, $singature)
 {
     $secret = $_ENV['WEBHOOK_SECRECT'];
-    $result = 'sha256='.hash_hmac('sha256', $reqBody, $secret, false);
+    $result = 'sha256=' . hash_hmac('sha256', $reqBody, $secret, false);
     return ($result == $singature);
 }
-
 
 //verify request
 if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
@@ -63,7 +62,8 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://in
 }
 
 http_response_code(500);
-die(var_dump($_SERVER));
+echo "Start to output \$_SERVER";
+echo var_dump($_SERVER);
 
 //get the github auth token
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
@@ -75,7 +75,7 @@ $files = getDirectory($repo, '/');
 echo $files;
 
 //write to file
-empty($files) ?  file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500);die('Unable to get the file list');
+empty($files) ? file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500);die('Unable to get the file list');
 
 //download the *.hitokoto.json
 if (!is_dir(__DIR__ . '/hitokoto/')) {
