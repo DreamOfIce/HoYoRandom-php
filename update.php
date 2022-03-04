@@ -44,9 +44,10 @@ function getDirectory($repo, $path)
 }
 
 //verify the secret
-function verifySecret($reqBody, $singature)
+function verifySecret($reqBody, $singature, $secret)
 {
-    $secret = $_ENV['WEBHOOK_SECRECT'];
+    $singature;
+    echo $result;
     $result = 'sha256=' . hash_hmac('sha256', $reqBody, $secret, false);
     return ($result == $singature);
 }
@@ -56,14 +57,10 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
     http_response_code(405);
     die('Method Not Allowed');
 }
-if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://input"), $_SERVER['HTTP_X_HUB_SINGATURE_256'])) {
+if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://input"), $_SERVER['HTTP_X_HUB_SINGATURE_256'], $_ENV['WEBHOOK_SECRECT'])) {
     http_response_code(403);
     die('Invalid Secret');
 }
-
-http_response_code(500);
-echo "Start to output \$_SERVER";
-echo var_dump($_SERVER);
 
 //get the github auth token
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
