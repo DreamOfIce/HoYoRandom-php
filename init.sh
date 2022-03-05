@@ -7,11 +7,14 @@ export WEBHOOK_SECRET=''
 
 #添加PHP到PATH(适用于heroku系)
 
-if [ ! $(type php) ]; then
-    export PATH='./.heroku/php/bin'
+type php >/dev/null
+if [ ! $? ]; then
+    echo 'add php to path'
+    export PATH="${PWD}/.heroku/php/bin"
 fi
 
 #执行脚本
 php ./update.php
+
 #恢复环境变量
 export WEBHOOK_SECRET="${webhookSecret}"
