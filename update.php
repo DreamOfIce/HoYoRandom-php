@@ -66,13 +66,13 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://in
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
 //get the directory
-$_ENV['RES_REPO_NAME'] ? $repo = $_ENV['RES_REPO_NAME'] : http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
+isset($_ENV['RES_REPO_NAME']) ? $repo = $_ENV['RES_REPO_NAME'] : $repo = 'DreamOfIce/HoYoRandomResources'; //http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
-echo $files;
+//echo $files;
 
 //write to file
-empty($files) ? file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500);die('Unable to get the file list');
+!empty($files) ? file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500) && die('Unable to get the file list');
 
 //download the *.hitokoto.json
 if (!is_dir(__DIR__ . '/hitokoto/')) {
