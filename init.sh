@@ -5,6 +5,11 @@
 webhookSecret="${WEBHOOK_SECRECT}"
 export WEBHOOK_SECRET=''
 
+#添加PHP到PATH(适用于heroku系)
+
+if [ ! $(type php) ]; then
+    export PATH='./.heroku/php/bin'
+fi
 #执行脚本
 php ./update.php
 #恢复环境变量
