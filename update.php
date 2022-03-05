@@ -44,12 +44,19 @@ function getDirectory($repo, $path)
 }
 
 //verify the secret
-function verifySecret($reqBody, $singature, $secret)
+function verifyRequest()
 {
-    $singature;
-    $result = 'sha256=' . hash_hmac('sha256', $reqBody, $secret, false);
-    echo $singature, $result;
-    return ($result == $singature);
+    if (isset($_ENV['WEBHOOK_SECRET'])) {
+        $secret = $_ENV['WEBHOOK_SECRET'];
+    } else {
+        return true;
+    }
+    foreach (str_split($_SERVER['QUERY_STRING'], '&') as $arg) {
+        if (trim($arg) == 's=' . $secret) {
+            return true;
+        }
+    }
+    return false;
 }
 
 //verify request
@@ -57,7 +64,7 @@ if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
     http_response_code(405);
     die('Method Not Allowed');
 }
-if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://input"), $_SERVER['HTTP_X_HUB_SINGATURE_256'], $_ENV['WEBHOOK_SECRECT'])) {
+if (!verifyRequest()) {
     http_response_code(403);
     die('Invalid Secret');
 }
@@ -66,10 +73,8 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://in
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
 //get the directory
-isset($_ENV['RES_REPO_NAME']) ? $repo = $_ENV['RES_REPO_NAME'] : $repo = 'DreamOfIce/HoYoRandomResources'; //http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
+$repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
-
-//echo $files;
 
 //write to file
 !empty($files) ? file_put_contents(__DIR__ . '/contents.json', json_encode($files, JSON_UNESCAPED_UNICODE)) : http_response_code(500) && die('Unable to get the file list');
