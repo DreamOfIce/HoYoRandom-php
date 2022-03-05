@@ -47,8 +47,8 @@ function getDirectory($repo, $path)
 function verifySecret($reqBody, $singature, $secret)
 {
     $singature;
-    echo $result;
     $result = 'sha256=' . hash_hmac('sha256', $reqBody, $secret, false);
+    echo $singature, $result;
     return ($result == $singature);
 }
 
@@ -66,7 +66,7 @@ if (isset($_ENV['WEBHOOK_SECRECT']) && !verifySecret(file_get_contents("php://in
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
 //get the directory
-$repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500);die('Server error:RES_REPO_NAME no set!');
+$_ENV['RES_REPO_NAME'] ? $repo = $_ENV['RES_REPO_NAME'] : http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
 echo $files;
