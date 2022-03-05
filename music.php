@@ -2,7 +2,7 @@
 //get parameter
 $category = $_GET['game'] ?? '.*';
 $type = $_GET['type'] ?? 'raw';
-$url = $_ENV['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
+$url = 'https://cdn.dreamofice.cn/p/HoYoRandomResources/'; //$_ENV['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
 
 //generate the list
 $regexp = '/^(music\/' . $category . '\/).*(\.mp3)$/i';
@@ -12,6 +12,7 @@ foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => 
         array_push($musics, array('name' => $name, 'path' => $path));
     }
 }
+$musics ?: http_response_code(500) && die('list of music is empty');
 
 //get a random image
 $music = $musics[array_rand($musics)];

@@ -12,6 +12,7 @@ foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => 
         array_push($images, array('name' => $name, 'path' => $path));
     }
 }
+$images ?: http_response_code(500) && die('list of image is empty');
 
 //get a random image
 $image = $images[array_rand($images)];

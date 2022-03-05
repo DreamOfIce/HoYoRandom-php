@@ -12,6 +12,7 @@ foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => 
         array_push($videos, array('name' => $name, 'path' => $path));
     }
 }
+$videos ?: http_response_code(500) && die('list of video is empty');
 
 //get a random image
 $video = $videos[array_rand($videos)];
