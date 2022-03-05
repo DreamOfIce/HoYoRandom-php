@@ -10,6 +10,7 @@ export WEBHOOK_SECRET=''
 if [ ! $(type php) ]; then
     export PATH='./.heroku/php/bin'
 fi
+
 #执行脚本
 php ./update.php
 #恢复环境变量

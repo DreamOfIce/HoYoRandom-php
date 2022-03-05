@@ -2,7 +2,7 @@
 //get parameter
 $category = $_GET['game'] ?? '.*';
 $type = $_GET['type'] ?? 'raw';
-$url = $_ENV['RES_URL'] ?? http_response_code(500);die('RES_URL_NOT_DEFINED');
+$url = $_ENV['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
 
 //generate the list
 $regexp = '/^(img\/' . $category . '\/).*(\.webp)$/i';
