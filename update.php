@@ -44,7 +44,7 @@ function getDirectory($repo, $path)
 }
 
 //verify the secret
-function verifyRequest()
+function verify()
 {
     if (isset($_ENV['WEBHOOK_SECRET'])) {
         $secret = $_ENV['WEBHOOK_SECRET'];
@@ -60,20 +60,21 @@ function verifyRequest()
 }
 
 //verify request
-if (isset($_SERVER['REQUEST_METHOD']) && $_SERVER['REQUEST_METHOD'] != 'POST') {
-    http_response_code(405);
-    die('Method Not Allowed');
-}
-if (!verifyRequest()) {
-    http_response_code(403);
-    die('Invalid Secret');
-}
+if (!$argc) {
+    if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+        http_response_code(405);
+        die('Method Not Allowed');
+    }
+    if (!verify()) {
+        http_response_code(403);
+        die('Invalid Secret');
+    }}
 
 //get the github auth token
-$ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
+$ghAuth = $_ENV['GITHUB_AUTH'] ?? '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';
 
 //get the directory
-$repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
+$repo = $_ENV['RES_REPO_NAME'] ?? 'DreamOfIce/HoYoRandomResources'; //http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
 //write to file
