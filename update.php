@@ -71,10 +71,10 @@ if (!$argc) {
     }}
 
 //get the github auth token
-$ghAuth = $_ENV['GITHUB_AUTH'] ?? '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';
+$ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
 //get the directory
-$repo = $_ENV['RES_REPO_NAME'] ?? 'DreamOfIce/HoYoRandomResources'; //http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
+$repo = $_ENV['RES_REPO_NAME'] ?? Whttp_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
 //write to file
