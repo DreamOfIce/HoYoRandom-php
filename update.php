@@ -74,7 +74,7 @@ if (!$argc) {
 $ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
 
 //get the directory
-$repo = $_ENV['RES_REPO_NAME'] ?? Whttp_response_code(500) && die('Server error:RES_REPO_NAME no set!');
+$repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
 //write to file
