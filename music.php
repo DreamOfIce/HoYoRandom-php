@@ -9,7 +9,7 @@ $regexp = '/^(music\/' . $category . '\/).*(\.mp3)$/i';
 $musics = array();
 foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => $path) {
     if (preg_match($regexp, $path) == 1) {
-        array_push($musics, array('name' => $name, 'path' => $url . $path));
+        array_push($musics, array('name' => $name, 'path' => rawurlencode($url . $path)));
     }
 }
 $musics ?: http_response_code(500) && die('list of music is empty');
@@ -21,7 +21,7 @@ $music = $musics[array_rand($musics)];
 if ($type == 'json') {
     header('Content-Type: application/json');
     header('Charset: UTF-8');
-    echo json_encode(array('name' => $music['name'], 'url' => $url . $music['path']), JSON_UNESCAPED_UNICODE);
+    echo json_encode(array('name' => $music['name'], 'url' => $music['path']), JSON_UNESCAPED_UNICODE);
 } else {
     header("Location:" . $music['path']);
 }

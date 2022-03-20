@@ -50,110 +50,58 @@
 # 返回示例  
 
 ## 图片示例  
+### 默认  
 ![随机图片](https://api.dreamofice.cn/random-v0/img "这是随机的哦")  
+
+### Json  
+````json
+{
+    "name": "83ef76b315707993d5734222936cfa2f4aa30ede.webp",
+    "url": "https://cdn.dreamofice.cn/HoYoRandomResources/img/bh3/83ef76b315707993d5734222936cfa2f4aa30ede.webp"
+}
+````
   
 ## 音频示例
+### 默认
 <audio src="https://api.dreamofice.cn/random-v0/music">似乎不支持预览(っ °Д °;)っ </audio>  
 
+### Json  
+````json
+{
+    "name": "陈致逸,HOYO-MiX - Rex Incognito 尘世闲游.mp3",
+    "url": "https://cdn.dreamofice.cn/p/HoYoRandomResources/music/ys/陈致逸,HOYO-MiX - Rex Incognito 尘世闲游.mp3"
+}
+````
 ## 视频示例
+### 默认
 <video src="https://api.dreamofice.cn/random-v0/video">似乎不支持预览(っ °Д °;)っ </video>  
+
+### Json  
+````json
+{
+    "name": "24277076-1-208.mp4",
+    "url": "https://cdn.dreamofice.cn/HoYoRandomResources/video/bh3/24277076-1-208.mp4"
+}
+````
 
 ## 一言示例 
 
-### Json(默认)
+### Json(默认)  
 ````json
 {
     "hitokoto": "最初的鸟儿是不会飞翔的,飞翔是它们勇敢跃入峡谷的奖励"
 }
-````
+````  
 
 ### javaScript
 ````js
+document.querySelector('#hitokoto').innerText='最初的鸟儿是不会飞翔的,飞翔是它们勇敢跃入峡谷的奖励';
+````  
 
-````
-包含崩3,原神的名台词、名梗，目前内容还很少，欢迎大家积极贡献  ヾ(≧▽≦*)o  
-  
-*   接口  
-    https://api.dreamofice.cn/random-v0/hitokoto  
-*   参数  
-    **game**  
-  
-> 选择目标游戏(崩崩崩 OR 原神)  
-> 可选值:bh3 ys  
-> 默认值:随机  
-> **encode**  
-> 指定返回格式  
-> 可选值:js json text  
-> 默认值:text  
-> **selete**  
-> 指定选择器,配合*encode=js*使用  
-> 默认值:#hitokoto  
-  
-*   返回值  
-    *encode=js*  
-  
-```javascript  
-document.querySelector('#hitokoto').innerText='为世界上所有的美好而战';  
-```  
-  
-*encode=json*  
-  
-```json  
-{"text":"为世界上所有的美好而战"}  
-```  
-  
-*encode=text*  
-  
-    为世界上所有的美好而战  
-  
-*   演示  
-  
-> 试着刷新页面，句子会改变哦(需要js)  
-  
-***  
-  
-## 随机音乐  
-  
-包含网易云音乐中原神,崩3的所有专辑,格式为mp3  
-存放于[music目录](/music)  
-  
-*   接口  
-    https://api.dreamofice.cn/random-v0/music  
-*   参数  
-    **game**  
-  
-> 选择目标游戏(崩崩崩 OR 原神)  
-> 可选值:bh3 ys  
-> 默认值:随机  
-  
-*   演示  
-    *试着刷新页面，音乐会改变哦 (GitHub似乎无法显示)`(*>﹏<*)′*  
-  
- 
-  
-***  
-  
-## 随机视频  
-  
-目前包含崩3动画短片以及原神EV,分辨率720P 24FPS,格式 *webm* ,为了缩小体积画质有些取舍哈  
-  
-> 注意:无法使用jsdelivr,有20M的大小限制  
-> 存放于[video目录](/video)  
-  
-*   接口  
-    https://api.dreamofice.cn/random-v0/video  
-*   参数  
-    **game**  
-  
-> 选择目标游戏(三崩子 OR 原神)  
-> 可选值:bh3 ys  
-> 默认值:随机  
-  
-*   演示  
-  
-> 试着刷新页面，视频会改变哦  
-  
-***  
+### 纯文本  
+````text
+最初的鸟儿是不会飞翔的,飞翔是它们勇敢跃入峡谷的奖励
+````  
   
 # 部署  
 见 [deploy.md](deploy.md)
