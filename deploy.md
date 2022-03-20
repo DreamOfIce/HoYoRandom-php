@@ -1,6 +1,7 @@
-# HoYoRandom-PHP | 部署
-使用方法请见[README](readme.md)
+# HoYoRandom-PHP | 部署  
+使用方法请见[README](readme.md)  
 
+**此文档已过时,正在更新中**
 # 部署到Koyeb  
   
 查看[DEMO](https://random-v0-dreamofice.koyeb.app)  

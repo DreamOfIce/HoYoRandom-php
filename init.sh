@@ -3,11 +3,11 @@
 
 #检查环境变量
 if [ -z "${GITHUB_AUTH}" ]; then
-    echo "[WARN]您未将Github Personal Access Token添加到环境变量中,会有60Req/h/IP的速率限制,详见 https://github.com/DreamOfIce/HoYoRandom-php/blob/main/readme.md#环境变量"
+    echo "[WARN]您未将Github Personal Access Token添加到环境变量中,会有60Req/h/IP的速率限制,详见 https://github.com/DreamOfIce/HoYoRandom-php/blob/main/deploy.md#环境变量"
 fi
 
-if [ -z "${WEBHOOK_SECRET}" ]; then
-    echo "[WARN]您未设置Webhook验证,请勿在生产环境中使用此配置,详见 https://github.com/DreamOfIce/HoYoRandom-php/blob/main/readme.md#环境变量"
+if [ -z "${WEBHOOK_SECRECT}" ]; then
+    echo "[WARN]您未设置Webhook验证,请勿在生产环境中使用此配置,详见 https://github.com/DreamOfIce/HoYoRandom-php/blob/main/deploy.md#环境变量"
 fi
 
 if [ -z "$RES_REPO_NAME" ]; then
@@ -15,8 +15,7 @@ if [ -z "$RES_REPO_NAME" ]; then
 fi
 
 #添加PHP到PATH(适用于heroku系)
-type php >/dev/null
-if [ ! $? ]; then
+if [ -e './.heroku' ]; then
     echo 'Add PHP to path'
     export PATH="${PWD}/.heroku/php/bin"
 fi
