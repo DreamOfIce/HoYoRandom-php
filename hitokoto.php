@@ -20,10 +20,10 @@ foreach (scandir(__DIR__ . '/hitokoto/') as $file) {
 $hitokoto = $hitokotos[array_rand($hitokotos)];
 
 //output
+header('Charset: UTF-8');
 switch ($encode) {
     case 'text':
         header('Content-Type: text/plain');
-        header('Charset: UTF-8');
         echo $hitokoto;
         break;
     case 'js':

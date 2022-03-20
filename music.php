@@ -20,6 +20,7 @@ $music = $musics[array_rand($musics)];
 //output
 if ($type == 'json') {
     header('Content-Type: application/json');
+    header('Charset: UTF-8');
     echo json_encode(array('name' => $music['name'], 'url' => $url . $music['path']), JSON_UNESCAPED_UNICODE);
 } else {
     header("Location:" . $music['path']);

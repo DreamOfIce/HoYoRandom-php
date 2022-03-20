@@ -20,6 +20,7 @@ $video = $videos[array_rand($videos)];
 //output
 if ($type == 'json') {
     header('Content-Type: application/json');
+    header('Charset: UTF-8');
     echo json_encode(array('name' => $video['name'], 'url' => $url . $video['path']), JSON_UNESCAPED_UNICODE);
 } else {
     header("Location:" . $video['path']);

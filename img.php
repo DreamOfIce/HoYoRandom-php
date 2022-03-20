@@ -20,6 +20,7 @@ $image = $images[array_rand($images)];
 //output
 if ($type == 'json') {
     header('Content-Type: application/json');
+    header('Charset: UTF-8');
     echo json_encode(array('name' => $image['name'], 'url' => $url . $image['path']), JSON_UNESCAPED_UNICODE);
 } else {
     header("Location:" . $image['path']);
