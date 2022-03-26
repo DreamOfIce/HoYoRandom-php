@@ -20,18 +20,18 @@ foreach (scandir(__DIR__ . '/hitokoto/') as $file) {
 $hitokoto = $hitokotos[array_rand($hitokotos)];
 
 //output
+header('Charset: UTF-8');
 switch ($encode) {
     case 'text':
         header('Content-Type: text/plain');
         echo $hitokoto;
         break;
     case 'js':
-        header('Content-Type: application/javascript;charset=UTF-8');
+        header('Content-Type: application/javascript');
         echo 'document.querySelector(\'' . $selete . '\').innerText=\'' . $hitokoto . '\';';
         break;
     default:
         header('Content-type:text/json');
-        header('Charset: UTF-8');
         echo json_encode(array('hitokoto' => $hitokoto), JSON_UNESCAPED_UNICODE);
         break;
 }
