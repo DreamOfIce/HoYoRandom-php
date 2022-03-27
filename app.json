@@ -1,0 +1,35 @@
+{
+    "name": "HoYoRandom-php",
+    "description": "包括原神&崩坏3精选图片、音乐、视频以及名台词.",
+    "keywords": [
+        "Genshin",
+        "PHP"
+    ],
+    "website": "https://www.dreamofice.cn/p/HoYoRandom-php",
+    "repository": "https://github.com/DreamOfIce/HoYoRandom-php",
+    "logo": "https://github.do/https://raw.githubusercontent.com/DreamOfIce/HoYoRandom-php/main/logo.png",
+    "scripts": {
+        "postdeploy": "bundle exec rake bootstrap"
+    },
+    "env": {
+        "RES_REPO_NAME": {
+            "description": "存放资源的Gitub仓库名",
+            "required": true,
+            "value": "DreamOfIce/HoYoRandomResources"
+        },
+        "RES_URL": {
+            "description": "资源文件的URL",
+            "required": true
+        },
+        "GITHUB_AUTH": {
+            "description": "用于获取资源目录的Github Token"
+        },
+        "WEBHOOK_SECRECT": {
+            "description": " 验证webhook请求",
+            "generator": "secret"
+        }
+    },
+    "buildpacks": [{
+        "url": "heroku/php"
+    }]
+}

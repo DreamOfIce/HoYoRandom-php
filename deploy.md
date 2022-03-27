@@ -7,18 +7,20 @@
 ## 部署到Koyeb  
 查看[DEMO](https://random-v0-dreamofice.koyeb.app)  
 [![部署到Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&name=HoYoRandom&ports=8080;http;/&env[RES_REPO_NAME]=DreamOfIce/HoYoRandomResources&env[RES_URL]=https://cdn.example.cn/path/to/the/resource/&env[GITHUB_AUTH]=Username:gh_tokenhere&env[WEBHOOK_SECRECT]=vStTKNqE39oqIJqY&repository=github.com/DreamOfIce/HoYoRandom-php&branch=main&run_command=bash%20init.sh)  
-  
-## 部署到Heroku
-
 点击上面的按钮部署,实例大小建议选择nano.  
   
+## 部署到Heroku
+查看[DEMO](https://hoyorandom-php.herokuapp.com/)  
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)  
+点击上面的按钮部署
+  
 # 环境变量
-|     环境变量      |            描述             |        值        |                      示例                      | 必填  |
-| :---------------: | :-------------------------: | :--------------: | :--------------------------------------------: | :---: |
-|  `RES_REPO_NAME`  |    存放资源的Gitub仓库名    |  Username/Repo   |        `DreamOfIce/HoYoRandomResources`        |  是   |
-|     `RES_URL`     |        资源文件的URL        |   URL(带协议)    | `https://cdn.example.cn/path/to/the/resource/` |  是   |
-|   `GITHUB_AUTH`   |      用于获取资源目录       | User:GithubToken |           `Username:gh_tokenhere`           |  否   |
-| `WEBHOOK_SECRECT` | 验证webhook请求(见[此处]()) |    任意字符串    |               `vStTKNqE39oqIJqY`               |  否   |
+|     环境变量      |              描述              |        值        |                      示例                      | 必填  |
+| :---------------: | :----------------------------: | :--------------: | :--------------------------------------------: | :---: |
+|  `RES_REPO_NAME`  |     存放资源的Gitub仓库名      |  Username/Repo   |        `DreamOfIce/HoYoRandomResources`        |  是   |
+|     `RES_URL`     |         资源文件的URL          |   URL(带协议)    | `https://cdn.example.cn/path/to/the/resource/` |  是   |
+|   `GITHUB_AUTH`   | 用于获取资源目录的Github Token | User:GithubToken |            `Username:gh_tokenhere`             |  否   |
+| `WEBHOOK_SECRECT` |  验证webhook请求(见[此处]())   |    任意字符串    |               `vStTKNqE39oqIJqY`               |  否   |
 
 > 注意事项  
 > 1. Github API对未经验证的用户有60req/h/IP的限制,并且由于PaaS平台IP共享,实际可用值会更低.所以墙裂建议使用;  
