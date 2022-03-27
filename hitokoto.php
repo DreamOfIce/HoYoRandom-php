@@ -15,6 +15,7 @@ foreach (scandir(__DIR__ . '/hitokoto/') as $file) {
         }
     }
 }
+$images ?: http_response_code(500) && die('list of hitokoto is empty');
 
 //get a random hitokoto
 $hitokoto = $hitokotos[array_rand($hitokotos)];
