@@ -9,7 +9,7 @@ $regexp = '/^(video\/' . $category . '\/).*(\.mp4)$/i';
 $videos = array();
 foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => $path) {
     if (preg_match($regexp, $path) == 1) {
-        array_push($videos, array('name' => $name, 'path' => rawurlencode($url . $path)));
+        array_push($videos, array('name' => $name, 'path' => $url . str_replace('%2F', '/', rawurlencode($path))));
     }
 }
 $videos ?: http_response_code(500) && die('list of video is empty');

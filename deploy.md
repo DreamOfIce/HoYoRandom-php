@@ -1,13 +1,14 @@
 # HoYoRandom-PHP | 部署  
 使用方法请见[README](readme.md)  
 
-[TOC]
+[TOC]  
 **此文档已过时,正在更新中**
-# 部署到Koyeb  
+# 部署
+## 部署到Koyeb  
 查看[DEMO](https://random-v0-dreamofice.koyeb.app)  
 [![部署到Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&name=HoYoRandom&ports=8080;http;/&repository=github.com/DreamOfIce/HoYoRandom-php&branch=main)  
   
-# 部署到Heroku
+## 部署到Heroku
 
 点击上面的按钮部署,实例大小建议选择nano.  
   
