@@ -6,7 +6,7 @@
 # 部署
 ## 部署到Koyeb  
 查看[DEMO](https://random-v0-dreamofice.koyeb.app)  
-[![部署到Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&name=HoYoRandom&ports=8080;http;/&env[RES_REPO_NAME]=DreamOfIce/HoYoRandomResources&env[RES_URL]=https://cdn.example.cn/path/to/the/resource/&env[GITHUB_AUTH]=Username:gh_tokenhere&env[WEBHOOK_SECRECT]=vStTKNqE39oqIJqY&repository=github.com/DreamOfIce/HoYoRandom-php&branch=main&run_command=bash%20init.sh)  
+[![部署到Koyeb](https://www.koyeb.com/static/images/deploy/button.svg)](https://app.koyeb.com/deploy?type=git&name=HoYoRandom&ports=8080;http;/&env[RES_REPO_NAME]=DreamOfIce/HoYoRandomResources&env[RES_URL]=https://cdn.example.cn/path/to/the/resource/&env[GITHUB_AUTH]=Username:gh_tokenhere&env[WEBHOOK_SECRECT]=vStTKNqE39oqIJqY&repository=github.com/DreamOfIce/HoYoRandom-php&branch=main&run_command=bash%20./scripts/init.sh)  
   
 ## 部署到Heroku
 
