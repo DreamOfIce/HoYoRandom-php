@@ -1,3 +1,3 @@
 FROM richarvey/nginx-php-fpm:latest
 ENV GIT_REPO="https://github.com/DreamOfIce/HoYoRandom-php.git" PHP_ERRORS_STDERR=1 
-CMD bash /var/www/html/init.sh
+CMD ls -a /var/www/html
