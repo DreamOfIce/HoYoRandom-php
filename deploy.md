@@ -77,7 +77,7 @@
 ## PaaS平台
 1. 部署一节中所有PaaS平台都可以部署资源仓库;
 2. 还可以部署至以下PaaS平台: [Vercel](https://vercel.com/) [4EVERLAND](https://4everland.org/);
-3. 可以加一层Cloudflare反代,并配合自选IP达到更好的效果([新版自选IP详细教程](待填坑)).
+3. 可以加一层Cloudflare反代,并配合自选IP达到更好的效果([新版自选IP详细教程(待填坑)](https://www.dreamofice.cn/)).
 4. 欢迎补充!
 
 ## 部署到VPS
@@ -100,8 +100,9 @@ chmod 777 ${HOME}/script/hoyorandom/updateres.sh
 
 ------
 
-# 保护Webhook
+# 配置Webhook
 
 ------
 
 # 自定义资源仓库
+> 待填坑
