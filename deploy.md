@@ -28,6 +28,9 @@
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=github.com/DreamOfIce/HoYoRandom-php)
 
+## 使用Docker部署
+待编写
+
 ## 部署到VPS
 1. 安装Nginx,PHP和Git;
 2. 将$webRoot替换为你的web目录,并执行以下命令:
