@@ -1,6 +1,6 @@
 {
     "name": "dreamofice/hoyorandom-php",
-    "description": "Genshin&Honkai random API",
+    "description": "Genshin&Honkai3rd Random API",
     "type": "project",
     "require": {
         "php": "^8.1.0"

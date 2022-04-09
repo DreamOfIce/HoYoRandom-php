@@ -12,6 +12,7 @@ fi
 
 if [ -z "$RES_REPO_NAME" ]; then
     echo "[WARN]未设置资源仓库,使用默认值'DreamOfIce/HoYoRandomResources' !"
+    export RES_REPO_NAME='DreamOfIce/HoYoRandomResources'
 fi
 
 #添加PHP到PATH(适用于heroku系)
@@ -21,6 +22,7 @@ if [ -e './.heroku' ]; then
 fi
 
 #执行update.php
-php ./update.php
+php ./update.php > /dev/null
 
 echo 'Done!'
+exit 0
