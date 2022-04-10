@@ -5,7 +5,7 @@ $type = $_GET['type'] ?? 'raw';
 $url = $_ENV['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
 
 //generate the list
-$regexp = '/^(img\/' . $category . '\/).*(\.webp)$/i';
+$regexp = '/^(img\/' . $category . '\/).*(\.(webp|png|jpe?g|gif))$/i';
 $images = array();
 foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => $path) {
     if (preg_match($regexp, $path) == 1) {

@@ -4,6 +4,8 @@
 [TOC]  
 
 # 部署
+> 环境变量配置见[此处](#环境变量)  
+
 ## 部署到Koyeb  
 查看[DEMO](https://random-v0-dreamofice.koyeb.app) 
 > 点击按钮部署.   
@@ -29,7 +31,19 @@
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=github.com/DreamOfIce/HoYoRandom-php)
 
 ## 使用Docker部署
-待编写
+镜像基于[Nginx-PHP-fpm](https://gitlab.com/ric_harvey/nginx-php-fpm)构建.  
+> Docker Hub镜像: `dreamofice/hoyorandom-php`  
+> 国内阿里云镜像: `registry.cn-guangzhou.aliyuncs.com/dreamofice/hoyorandom-php`  
+
+替换环境变量并执行以下命令,将在8002端口上运行本项目:
+```` shell
+docker run -d --name='HoYoRandom-php' -p 8002:80 \
+-e RES_REPO_NAME='DreamOfIce/HoYoRandomResources' \
+RES_URL='https://cdn.example.cn/path/to/the/resource/' \
+GITHUB_AUTH='Username:gh_tokenhere' \
+WEBHOOK_SECRECT='Your Secret' \
+dreamofice/hoyorandom-php
+````
 
 ## 部署到VPS
 1. 安装Nginx,PHP和Git;
@@ -114,4 +128,25 @@ chmod 777 ${HOME}/script/hoyorandom/updateres.sh
 ------
 
 # 自定义资源存储库
-> 待填坑
+可参照[HoYoRandomResources](https://github.com/DreamOfIce/HoYoRandomResources)  
+需要更多格式可以自己改代码(￣_,￣ )
+## 图片
+- 存放于`img`目录下,二级目录为游戏名;  
+- 默认可识别格式:`webp`,`png`,`jpg`,`jpeg`,`gif`;  
+- 示例: `img/bh3/51a65d2b6dfec78bc8cb3afd732441964917c329.webp`.  
+
+## 音乐
+- 存放于`music`目录下,二级目录为游戏名;  
+- 默认可识别格式:`mp3`,`ogg`,`wmv`;  
+- 示例: `music/ys/HOYO-MiX - Path of Yaksha 捷疾之业.mp3`.  
+
+## 视频
+- 存放于`video`目录下,二级目录为游戏名;  
+- 默认可识别格式:`mp4`,`webm`;  
+- 示例: `video/bh3/102759887-1-208.mp4`.  
+
+## 一言
+- 存放于`hitokoto`目录下;  
+- 文件名为`游戏名.hitokoto.json`(例如`ys.hitokoto.json`);  
+- 内容为JSON数组,每个对象包含`s`(sentence)和`w`(wight)两个键,分别为句子和权重;
+- [示例文件](https://github.com/DreamOfIce/HoYoRandomResources/blob/master/hitokoto/bh3.hitokoto.json).

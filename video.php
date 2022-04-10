@@ -5,7 +5,7 @@ $type = $_GET['type'] ?? 'raw';
 $url = $_ENV['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
 
 //generate the list
-$regexp = '/^(video\/' . $category . '\/).*(\.mp4)$/i';
+$regexp = '/^(video\/' . $category . '\/).*(\.(mp4|webm))$/i';
 $videos = array();
 foreach (json_decode(file_get_contents(__DIR__ . '/contents.json')) as $name => $path) {
     if (preg_match($regexp, $path) == 1) {
