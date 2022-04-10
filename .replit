@@ -1,7 +1,0 @@
-language = "php7"
-run = "bash init.sh"
-[env]
-RES_REPO_NAME="DreamOfIce/HoYoRandomResources"
-RES_URL="https://cdn.dreamofice.cn/p/HoYoRandom/"
-GITHUB_AUTH="Username:gh_tokenhere"
-WEBHOOK_SECRECT="vStTKNqE39oqIJqY"

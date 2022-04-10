@@ -26,9 +26,15 @@
 
 ## 部署到Render
 查看[DEMO](https://hoyorandom.onrender.com)  
-> 点击按钮部署.  
+> 点击前往[控制台](https://dashboard.render.com/).注意不要开Chrome的翻译,容易白屏.  
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=github.com/DreamOfIce/HoYoRandom-php)
+1. 建议直接用Github注册登录;
+2. 点击右上角`New +`,在下拉菜单中选择`Web service`;
+3. 输入本存储库URL:
+        https://github.com/DreamOfIce/HoYoRandom-php
+4. 回车后进入配置页面,其中`Region`建议选新加坡(`Singapore`);
+5. 点击底部的`Advanced`,参考[此节](#环境变量)添加环境变量;
+6. 最后点击`Create Web Service`.
 
 ## 使用Docker部署
 镜像基于[Nginx-PHP-fpm](https://gitlab.com/ric_harvey/nginx-php-fpm)构建.  
