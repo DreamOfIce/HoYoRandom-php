@@ -1,4 +1,7 @@
 <?php
+//set environment
+define("ENVVAR",array_merge(getenv(),$_ENV));
+
 //curl get function
 function curlGet($url, $ua, $auth = '')
 {
@@ -46,8 +49,8 @@ function getDirectory($repo, $path)
 //verify the secret
 function verify()
 {
-    if (isset($_ENV['WEBHOOK_SECRET'])) {
-        $secret = $_ENV['WEBHOOK_SECRET'];
+    if (isset($ENVVAR['WEBHOOK_SECRET'])) {
+        $secret = $ENVVAR['WEBHOOK_SECRET'];
     } else {
         return true;
     }
@@ -71,10 +74,10 @@ if (!isset($argc)) {
     }}
 
 //get the github auth token
-$ghAuth = $_ENV['GITHUB_AUTH'] ?? '';
+$ghAuth = $ENVVAR['GITHUB_AUTH'] ?? '';
 
 //get the directory
-$repo = $_ENV['RES_REPO_NAME'] ?? http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
+$repo = $ENVVAR['RES_REPO_NAME'] ?? http_response_code(500) && die('Server error:RES_REPO_NAME no set!');
 $files = getDirectory($repo, '/');
 
 //write to file
