@@ -60,7 +60,7 @@ function verify()
 }
 
 //verify request
-if (!$argc) {
+if (!isset($argc)) {
     if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         http_response_code(405);
         die('Method Not Allowed');
