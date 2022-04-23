@@ -85,7 +85,7 @@ dreamofice/hoyorandom-php
 |  `RES_REPO_NAME`  |         存放资源的Gitub存储库名         |  Username/Repo   |        `DreamOfIce/HoYoRandomResources`        |  是   |
 |     `RES_URL`     |              资源文件的URL              |   URL(带协议)    | `https://cdn.example.cn/path/to/the/resource/` |  是   |
 |   `GITHUB_AUTH`   |            用于调用GithubAPI            | User:GithubToken |            `Username:gh_tokenhere`             |  否   |
-| `WEBHOOK_SECRECT` | 验证webhook请求(见[此处](#配置webhook)) |    任意字符串    |               `vStTKNqE39oqIJqY`               |  否   |
+| `WEBHOOK_SECRECT` | 验证webhook请求(见[此处](#配置webhook)) |    任意字符串    |               `AnyRandomString`               |  否   |
 > 注意事项  
 > 1. 为避免达到GithubAPI限制,建议填写`GITHUB_AUTH`.关于如何创建Token,请见[此处](https://docs.github.com/cn/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token);  
 > 2. 墙裂推荐填写`WEBHOOK_SECRECT`,以免Token被滥用.  

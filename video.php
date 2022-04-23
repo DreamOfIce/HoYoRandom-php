@@ -1,8 +1,11 @@
 <?php
+//get config
+require 'config.php';
+
 //get parameter
 $category = $_GET['game'] ?? '.*';
 $type = $_GET['type'] ?? 'raw';
-$url = $_ENV['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
+$url = CONFIG['RES_URL'] ?? http_response_code(500) && die('RES_URL_NOT_DEFINED');
 
 //generate the list
 $regexp = '/^(video\/' . $category . '\/).*(\.(mp4|webm))$/i';

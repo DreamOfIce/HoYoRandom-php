@@ -1,4 +1,7 @@
 <?php
+//get config
+require 'config.php';
+
 //get parameters
 $category = $_GET['game'] ?? '';
 $encode = $_GET['encode'] ?? 'json';
