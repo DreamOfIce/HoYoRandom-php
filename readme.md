@@ -26,7 +26,7 @@
 # 使用方法 
 
 ## API地址
-`https://api.dreamofice.cn/random-v0/`  
+`https://api.dreamofice.cn/hoyorandom/`  
 > 注意,本站已启用全站HSTS,并加入HSTS Preload,仅接受HTTPS访问.  
 
 ## 请求地址  
@@ -51,7 +51,7 @@
 
 ## 图片示例  
 ### 默认  
-![随机图片](https://api.dreamofice.cn/random-v0/img "这是随机的哦")  
+![随机图片](https://api.dreamofice.cn/hoyorandom/img "这是随机的哦")  
 
 ### Json  
 ````json
@@ -63,7 +63,7 @@
   
 ## 音频示例
 ### 默认
-<audio src="https://api.dreamofice.cn/random-v0/music">似乎不支持预览(っ °Д °;)っ </audio>  
+<audio src="https://api.dreamofice.cn/hoyorandom/music">似乎不支持预览(っ °Д °;)っ </audio>  
 
 ### Json  
 ````json
@@ -74,7 +74,7 @@
 ````
 ## 视频示例
 ### 默认
-<video src="https://api.dreamofice.cn/random-v0/video">似乎不支持预览(っ °Д °;)っ </video>  
+<video src="https://api.dreamofice.cn/hoyorandom/video">似乎不支持预览(っ °Д °;)っ </video>  
 
 ### Json  
 ````json
