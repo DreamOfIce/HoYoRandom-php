@@ -10,7 +10,7 @@
 *   [x] 给视频加上CDN  
 *   [x] 从Git获取文件列表,使API与资源分离  
 *   [x] 提高较小视频的画质  
-*   [ ] 使用nodejs重写 (准备中)  
+*   [ ] 使用nodejs重写 (进行中)  
   
 # 镜像存储库  
   
@@ -27,7 +27,7 @@
 
 ## API地址
 `https://api.dreamofice.cn/hoyorandom/`  
-> 注意,本站已启用全站HSTS,并加入HSTS Preload,仅接受HTTPS访问.  
+> 注意,本站已启用全站HSTS,并加入HSTS Preload List,仅接受HTTPS访问.  
 
 ## 请求地址  
 | 类型  |    地址     |                                    资源列表                                    |
