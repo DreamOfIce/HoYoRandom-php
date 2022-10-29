@@ -12,9 +12,7 @@ $hitokotos = array();
 foreach (scandir(__DIR__ . '/hitokoto/') as $file) {
     if (is_file(__DIR__ . '/hitokoto/' . $file) && preg_match('/(' . $category . '\.hitokoto\.json)$/i', $file) == 1) {
         foreach (json_decode(file_get_contents(__DIR__ . '/hitokoto/' . $file)) as $hitokoto) {
-            for ($i = 0; $i < $hitokoto->w; $i++) {
-                array_push($hitokotos, $hitokoto->s);
-            }
+            array_push($hitokotos, $hitokoto->hitokoto);
         }
     }
 }
